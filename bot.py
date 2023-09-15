@@ -18,7 +18,7 @@ async def start(message: Message):
     builder = ReplyKeyboardBuilder()
     builder.row(types.KeyboardButton(
         text="Web",
-        web_app=WebAppInfo(url='https://192.168.0.111:5000'))
+        web_app=WebAppInfo(url='https://geodeziy.github.io/W-0723/templates/index.html'))
     )
     await message.answer(message_text, parse_mode="HTML", reply_markup=builder.as_markup())
 
