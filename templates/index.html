@@ -166,7 +166,8 @@
 
 </head>
 
-<body>
+<body style="visibility: hidden;">
+<section>
    <div id="usercard"> <!--Карта профиля, человека, который к нам обратился-->
    </div>
    </h1>Just text</h1> <!--Просто текст для проверки-->
@@ -183,7 +184,7 @@
    <p class="hint">Some little hint</p> <!--Просто текст-подсказка для проверки-->
    <button id="btn" class="button">Show/Hide Main Button</button> <!--Кнопка, чтобы скрыть / показать основную кнопку-->
    <button id="btnED" class="button">Enable/Disable Main Button</button> <!--Кнопка, чтобы сделать кнопку активной/неактивной-->
-</body>
+</section>
 <div class="viewport_border"></div>
 <div class="viewport_stable_border"></div>
 <script src="https://webappcontent.telegram.org/js/jquery.min.js"></script>
@@ -193,7 +194,7 @@
     var initData = Telegram.WebApp.initData || '';
     var initDataUnsafe = Telegram.WebApp.initDataUnsafe || {};
 
-    $('button').prop('disabled', true);
+
     function webviewExpand() {
         Telegram.WebApp.expand();
     }
@@ -236,4 +237,5 @@
     Telegram.WebApp.onEvent('viewportChanged', setViewportData);
     setViewportData();
 </script>
+</body>
 </html>
