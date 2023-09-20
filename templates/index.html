@@ -2,37 +2,26 @@
 <html>
 <head>
    <meta charset="UTF-8">
+   <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Test Telegram WebApps API</title>
-   <script src="https://telegram.org/js/telegram-web-app.js"></script> <!--Подключаем скрипт от телеграм-->
+   <meta name="robots" content="noindex,nofollow"/>
+   <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
-    <style>
+   <style>
         body {
-            --bg-color: var(--tg-theme-bg-color, #fff);
             font-family: sans-serif;
-            background-color: var(--bg-color);
-            color: var(--tg-theme-text-color, #222);
-            font-size: 14px;
+            background-color: var(--tg-theme-bg-color, #ffffff);
+            color: var(--tg-theme-text-color, #222222);
+            font-size: 16px;
             margin: 0;
             padding: 0;
             color-scheme: var(--tg-color-scheme);
         }
-        body.gray {
-            background-color: var(--tg-theme-secondary-bg-color, #efefef);
-        }
 
         a {
             color: var(--tg-theme-link-color, #2678b6);
-        }
-        .btn {
-            font-size: 14px;
-            padding: 10px 17px;
-        }
-        .btn-primary {
-            background-color: var(--tg-theme-button-color, #50a8eb);
-            color: var(--tg-theme-button-text-color, #fff);
-            border: none;
         }
 
         button {
@@ -46,31 +35,6 @@
             background-color: var(--tg-theme-button-color, #50a8eb);
             color: var(--tg-theme-button-text-color, #ffffff);
             cursor: pointer;
-        }
-        .main-container {
-            padding: 15px;
-        }
-        .list-header {
-            text-transform: uppercase;
-            font-size: .92em;
-            color: var(--tg-theme-hint-color, #ccc);
-            margin: 0 0 10px;
-        }
-        a.list-group-item,
-        button.list-group-item {
-            color: var(--tg-theme-text-color, #222);
-        }
-        .main-container p {
-            margin: 0 0 10px;
-        }
-        .main-container pre,
-        .main-container > .btn {
-            margin: 0 0 7px;
-        }
-        .main-container pre + .hint,
-        .main-container > .btn + .hint {
-            text-align: center;
-            margin: 0 0 15px;
         }
 
         button[disabled] {
@@ -91,116 +55,57 @@
             text-transform: uppercase;
         }
 
-        input[type="text"],
-        .input[contenteditable] {
-            display: block;
-            box-sizing: border-box;
-            font-size: 14px;
-            width: 100%;
-            padding: 12px 20px;
-            margin: 15px 0;
-            border: 1px solid var(--tg-theme-link-color, #000);
-            background-color: var(--tg-theme-bg-color, #ffffff);
-            border-radius: 4px;
-            color: var(--tg-theme-text-color, #222222);
-            text-align: start;
-        }
-        input[type="text"]::-webkit-input-placeholder {
-            color: var(--tg-theme-hint-color, #ccc);
-        }
-        input[type="text"]::-moz-placeholder {
-            color: var(--tg-theme-hint-color, #ccc);
-        }
-        input[type="text"]:-ms-input-placeholder {
-            color: var(--tg-theme-hint-color, #ccc);
-        }
-        .input[data-placeholder] {
-            position: relative;
-        }
-        .input[data-placeholder]:empty:before {
-            position: absolute;
-            left: 0;
-            right: 0;
-            content: attr(data-placeholder);
-            color: var(--tg-theme-hint-color, #ccc);
-            padding: 0 20px;
-            font-weight: normal;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            overflow: hidden;
-            pointer-events: none;
-            z-index: -1;
-        }
         section {
-            padding: 15px;
+            padding: 15px 15px 65px;
             text-align: center;
-            background-color: var(--bg-color, #ffffff);
         }
-        section#top_sect {
-            background-color: var(--tg-theme-bg-color, #ffffff);
-        }
-        section#top_sect.second {
-            background-color: var(--tg-theme-secondary-bg-color, #efefef);
-        }
-        section .sect_row {
-            margin: 10px 0;
-        }
-        section + section {
-            padding: 0 15px 65px;
-        }
+
         p {
             margin: 40px 0 15px;
         }
+
         ul {
             text-align: left;
         }
+
         li {
             color: var(--tg-theme-hint-color, #a8a8a8);
         }
+
         textarea {
             width: 100%;
             box-sizing: border-box;
             padding: 7px;
         }
+
         pre {
             background: rgba(0, 0, 0, .07);
-            color: var(--tg-theme-text-color, #222);
-            font-size: 12px;
-            border: none;
             border-radius: 4px;
-            padding: 8px;
+            padding: 4px;
             margin: 7px 0;
+            word-break: break-all;
             word-break: break-word;
             white-space: pre-wrap;
             text-align: left;
         }
+
         .dark pre {
             background: rgba(255, 255, 255, .15);
         }
-        .chat_img {
-            width: 30px;
-            border-radius: 15px;
-            margin-right: 10px;
-        }
-        .columns {
-            display: flex;
-        }
-        .columns>* {
-            flex-grow: 1;
-        }
+
         .hint {
             font-size: .8em;
             color: var(--tg-theme-hint-color, #a8a8a8);
         }
+
         .ok {
             color: green;
         }
+
         .err {
             color: red;
         }
-        .status_need {
-            display: none;
-        }
+
         #fixed_wrap {
             position: fixed;
             left: 0;
@@ -208,29 +113,9 @@
             top: 0;
             transform: translateY(100vh);
         }
-        .viewport-container {
-            position: fixed;
-            left: 0;
-            right: 0;
-            top: 0;
-            height: var(--tg-viewport-stable-height, 100vh);
-            transition: height .2s ease;
-        }
-        .viewport-container .main-container {
-            position: absolute;
-            left: 0;
-            right: 0;
-            top: 0;
-            bottom: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .viewport-container .main-container button {
-            width: auto;
-        }
-        .viewport-border,
-        .viewport-stable_border {
+
+        .viewport_border,
+        .viewport_stable_border {
             position: fixed;
             left: 0;
             right: 0;
@@ -238,11 +123,13 @@
             height: var(--tg-viewport-height, 100vh);
             pointer-events: none;
         }
-        .viewport-stable_border {
+
+        .viewport_stable_border {
             height: var(--tg-viewport-stable-height, 100vh);
         }
-        .viewport-border:before,
-        .viewport-stable_border:before {
+
+        .viewport_border:before,
+        .viewport_stable_border:before {
             content: attr(text);
             display: inline-block;
             position: absolute;
@@ -253,13 +140,15 @@
             padding: 2px 4px;
             vertical-align: top;
         }
-        .viewport-stable_border:before {
+
+        .viewport_stable_border:before {
             background: green;
             left: 0;
             right: auto;
         }
-        .viewport-border:after,
-        .viewport-stable_border:after {
+
+        .viewport_border:after,
+        .viewport_stable_border:after {
             content: '';
             display: block;
             position: absolute;
@@ -269,84 +158,82 @@
             bottom: 0;
             border: 2px dashed gray;
         }
-        .viewport-stable_border:after {
-            border-color: green;
-        }
 
-        small {
-            font-size: 12px;
+        .viewport_stable_border:after {
+            border-color: green;
         }
     </style>
 
 </head>
 
-<body>
+<body style="visibility: hidden;">
    <div id="usercard"> <!--Карта профиля, человека, который к нам обратился-->
    </div>
    </h1>Just text</h1> <!--Просто текст для проверки-->
-   <a class="link" href="https://mihailgok.ru">Link</a> <!--Просто ссылка для проверки-->
+   <button id="main_btn" onclick="sendMessage('');">Send «Hello, World!»</button>
+
+   <button id="with_webview_btn" onclick="sendMessage('', true);">
+        Send «Hello, World!» with inline webview button
+    </button>
+    <button onclick="webviewExpand();">Expand Webview</button>
+    <button onclick="toggleMainButton(this);">Hide Main Button</button>
+    <div id="btn_status" class="hint" style="display: none;">
+    </div>
+
    <p class="hint">Some little hint</p> <!--Просто текст-подсказка для проверки-->
    <button id="btn" class="button">Show/Hide Main Button</button> <!--Кнопка, чтобы скрыть / показать основную кнопку-->
    <button id="btnED" class="button">Enable/Disable Main Button</button> <!--Кнопка, чтобы сделать кнопку активной/неактивной-->
 </body>
-
+<div class="viewport_border"></div>
+<div class="viewport_stable_border"></div>
+<script src="https://webappcontent.telegram.org/js/jquery.min.js"></script>
 <script>
-   let tg = window.Telegram.WebApp; //получаем объект webapp телеграма 
+   Telegram.WebApp.ready();
 
-   //tg.expand(); //расширяем на все окно
+    var initData = Telegram.WebApp.initData || '';
+    var initDataUnsafe = Telegram.WebApp.initDataUnsafe || {};
 
-   tg.MainButton.text = "Changed Text"; //изменяем текст кнопки 
-   tg.MainButton.setText("Changed Text1"); //изменяем текст кнопки иначе
-   tg.MainButton.textColor = "#F55353"; //изменяем цвет текста кнопки
-   tg.MainButton.color = "#143F6B"; //изменяем цвет бэкграунда кнопки
-   tg.MainButton.setParams({"color": "#143F6B"}); //так изменяются все параметры
+    $('button').prop('disabled', true);
+    function webviewExpand() {
+        Telegram.WebApp.expand();
+    }
 
-   let btn = document.getElementById("btn"); //получаем кнопку скрыть/показать 
+    function webviewClose() {
+        Telegram.WebApp.close();
+    }
 
-   btn.addEventListener('click', function(){ //вешаем событие на нажатие html-кнопки
-      if (tg.MainButton.isVisible){ //если кнопка показана 
-         tg.MainButton.hide() //скрываем кнопку 
-      }
-      else{ //иначе
-         tg.MainButton.show() //показываем 
-      }
-   });
+    $('#main_btn').toggle(!!initDataUnsafe.query_id);
+    $('#with_webview_btn').toggle(!!initDataUnsafe.query_id && !initDataUnsafe.receiver);
+    // $('#data_btn').toggle(!initDataUnsafe.query_id || !initDataUnsafe.receiver);
+    $('#webview_data').html(JSON.stringify(initDataUnsafe, null, 2));
+    $('body').css('visibility', '');
+    Telegram.WebApp.MainButton
+        .setText('CLOSE WEBVIEW')
+        .show()
+        .onClick(function () {
+            webviewClose();
+        });
 
-   let btnED = document.getElementById("btnED"); //получаем кнопку активировать/деактивировать
-   btnED.addEventListener('click', function(){ //вешаем событие на нажатие html-кнопки
-      if (tg.MainButton.isActive){ //если кнопка показана 
-         tg.MainButton.setParams({"color": "#E0FFFF"}); //меняем цвет
-         tg.MainButton.disable() //скрываем кнопку 
-      }
-      else{ //иначе
-         tg.MainButton.setParams({"color": "#143F6B"}); //меняем цвет
-         tg.MainButton.enable() //показываем 
-      }
-   });
+    function toggleMainButton(el) {
+        var mainButton = Telegram.WebApp.MainButton;
+        if (mainButton.isVisible) {
+            mainButton.hide();
+            el.innerHTML = 'Show Main Button';
+        } else {
+            mainButton.show();
+            el.innerHTML = 'Hide Main Button';
+        }
+    }
+    function round(val, d) {
+        var k = Math.pow(10, d || 0);
+        return Math.round(val * k) / k;
+    }
+    function setViewportData() {
+        $('.viewport_border').attr('text', window.innerWidth + ' x ' + round(Telegram.WebApp.viewportHeight, 2));
+        $('.viewport_stable_border').attr('text', window.innerWidth + ' x ' + round(Telegram.WebApp.viewportStableHeight, 2) + ' | is_expanded: ' + (Telegram.WebApp.isExpanded ? 'true' : 'false'));
+    }
 
-   Telegram.WebApp.onEvent('mainButtonClicked', function(){
-      tg.sendData("some string that we need to send"); 
-      //при клике на основную кнопку отправляем данные в строковом виде
-   });
-
-
-   let usercard = document.getElementById("usercard"); //получаем блок usercard 
-
-   let profName = document.createElement('p'); //создаем параграф
-   profName.innerText = `${tg.initDataUnsafe.user.first_name}
-   ${tg.initDataUnsafe.user.last_name}
-   ${tg.initDataUnsafe.user.username} (${tg.initDataUnsafe.user.language_code})`;
-   //выдем имя, "фамилию", через тире username и код языка
-   usercard.appendChild(profName); //добавляем 
-
-   let userid = document.createElement('p'); //создаем еще параграф 
-   userid.innerText = `${tg.initDataUnsafe.user.id}`; //показываем user_id
-   usercard.appendChild(userid); //добавляем
-
-
-   //работает только в attachment menu
-   // let pic = document.createElement('img'); //создаем img
-   // pic.src = tg.initDataUnsafe.user.photo_url; //задаём src 
-   // usercard.appendChild(pic); //добавляем элемент в карточку 
+    Telegram.WebApp.onEvent('viewportChanged', setViewportData);
+    setViewportData();
 </script>
 </html>
