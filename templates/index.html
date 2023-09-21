@@ -133,8 +133,6 @@
 
    <p class="hint">Some little hint</p> <!--Просто текст-подсказка для проверки-->
 </section>
-<div class="viewport_border"></div>
-<div class="viewport_stable_border"></div>
 <script src="https://webappcontent.telegram.org/js/jquery.min.js"></script>
 <script>
    Telegram.WebApp.ready();
@@ -168,6 +166,11 @@
             mainButton.show();
             el.innerHTML = 'Hide Main Button';
         }
+    }
+
+    function sendMessage(){
+        var data = 'данные';
+        Telegram.WebApp.sendData(data);
     }
 </script>
 </body>
