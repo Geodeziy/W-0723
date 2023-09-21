@@ -11,7 +11,7 @@
 
    <style>
         body {
-            font-family: sans-serif;
+            font-family: monospace;
             background-color: var(--tg-theme-bg-color, #ffffff);
             color: var(--tg-theme-text-color, #222222);
             font-size: 16px;
@@ -32,7 +32,7 @@
             padding: 12px 20px;
             border: none;
             border-radius: 4px;
-            background-color: var(--tg-theme-button-color, #50a8eb);
+            background-color: var(--tg-theme-button-color, #77dde7);
             color: var(--tg-theme-button-text-color, #ffffff);
             cursor: pointer;
         }
@@ -122,16 +122,16 @@
    <div id="usercard"> <!--Карта профиля, человека, который к нам обратился-->
    </div>
    </h1>Just text</h1> <!--Просто текст для проверки-->
-   <button id="main_btn" onclick="sendMessage('');">Send «Hello, World!»</button>
+   <button id="main_btn" onclick="sendMessage('');">Кнопка данные</button>
 
    <button id="with_webview_btn" onclick="sendMessage('', true);">
-        Send «Hello, World!» with inline webview button
+        кнопка ничего
     </button>
-    <button onclick="toggleMainButton(this);">Hide Main Button</button>
+    <button onclick="toggleMainButton(this);">Скрыть основную кнопку</button>
     <div id="btn_status" class="hint" style="display: none;">
     </div>
 
-   <p class="hint">Some little hint</p> <!--Просто текст-подсказка для проверки-->
+   <p class="hint">Маленький текст</p> <!--Просто текст-подсказка для проверки-->
 </section>
 <script src="https://webappcontent.telegram.org/js/jquery.min.js"></script>
 <script>
@@ -139,7 +139,7 @@
 
     var initData = Telegram.WebApp.initData || '';
     var initDataUnsafe = Telegram.WebApp.initDataUnsafe || {};
-    Telegram.WebApp.expand()
+    Telegram.WebApp.expand();
 
     function webviewClose() {
         Telegram.WebApp.close();
@@ -151,7 +151,7 @@
     $('#webview_data').html(JSON.stringify(initDataUnsafe, null, 2));
     $('body').css('visibility', '');
     Telegram.WebApp.MainButton
-        .setText('CLOSE WEBVIEW')
+        .setText('Закрыть веб-просмотр')
         .show()
         .onClick(function () {
             webviewClose();
@@ -161,10 +161,10 @@
         var mainButton = Telegram.WebApp.MainButton;
         if (mainButton.isVisible) {
             mainButton.hide();
-            el.innerHTML = 'Show Main Button';
+            el.innerHTML = 'Показать кнопку';
         } else {
             mainButton.show();
-            el.innerHTML = 'Hide Main Button';
+            el.innerHTML = 'Скрыть кнопку';
         }
     }
 
