@@ -176,7 +176,6 @@
    <button id="with_webview_btn" onclick="sendMessage('', true);">
         Send «Hello, World!» with inline webview button
     </button>
-    <button onclick="webviewExpand();">Expand Webview</button>
     <button onclick="toggleMainButton(this);">Hide Main Button</button>
     <div id="btn_status" class="hint" style="display: none;">
     </div>
@@ -191,11 +190,7 @@
 
     var initData = Telegram.WebApp.initData || '';
     var initDataUnsafe = Telegram.WebApp.initDataUnsafe || {};
-
-
-    function webviewExpand() {
-        Telegram.WebApp.expand();
-    }
+    Telegram.WebApp.expand()
 
     function webviewClose() {
         Telegram.WebApp.close();
@@ -223,17 +218,6 @@
             el.innerHTML = 'Hide Main Button';
         }
     }
-    function round(val, d) {
-        var k = Math.pow(10, d || 0);
-        return Math.round(val * k) / k;
-    }
-    function setViewportData() {
-        $('.viewport_border').attr('text', window.innerWidth + ' x ' + round(Telegram.WebApp.viewportHeight, 2));
-        $('.viewport_stable_border').attr('text', window.innerWidth + ' x ' + round(Telegram.WebApp.viewportStableHeight, 2) + ' | is_expanded: ' + (Telegram.WebApp.isExpanded ? 'true' : 'false'));
-    }
-
-    Telegram.WebApp.onEvent('viewportChanged', setViewportData);
-    setViewportData();
 </script>
 </body>
 </html>
