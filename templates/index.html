@@ -113,55 +113,6 @@
             top: 0;
             transform: translateY(100vh);
         }
-
-        .viewport_border,
-        .viewport_stable_border {
-            position: fixed;
-            left: 0;
-            right: 0;
-            top: 0;
-            height: var(--tg-viewport-height, 100vh);
-            pointer-events: none;
-        }
-
-        .viewport_stable_border {
-            height: var(--tg-viewport-stable-height, 100vh);
-        }
-
-        .viewport_border:before,
-        .viewport_stable_border:before {
-            content: attr(text);
-            display: inline-block;
-            position: absolute;
-            background: gray;
-            right: 0;
-            top: 0;
-            font-size: 7px;
-            padding: 2px 4px;
-            vertical-align: top;
-        }
-
-        .viewport_stable_border:before {
-            background: green;
-            left: 0;
-            right: auto;
-        }
-
-        .viewport_border:after,
-        .viewport_stable_border:after {
-            content: '';
-            display: block;
-            position: absolute;
-            left: 0;
-            right: 0;
-            top: 0;
-            bottom: 0;
-            border: 2px dashed gray;
-        }
-
-        .viewport_stable_border:after {
-            border-color: green;
-        }
     </style>
 
 </head>
