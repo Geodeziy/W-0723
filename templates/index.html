@@ -26,7 +26,7 @@
 
         button {
             display: block;
-            width: 90%;
+            width: 95%;
             font-size: 14px;
             margin: 15px 0;
             padding: 12px 20px;
@@ -117,7 +117,7 @@
 
 </head>
 
-<body style="visibility: hidden;">
+<body style="visibility: visible;">
 <section>
    </h1>Просто текст</h1>
    <button id="main_btn" onclick="sendMessage('');">Кнопка данные</button>
@@ -128,7 +128,7 @@
     <button onclick="toggleMainButton(this);">Скрыть основную кнопку</button>
     <div id="btn_status" class="hint" style="display: none;">
     </div>
-    <div data-site3d="2327"></div>
+    <img src="https://github.com/Geodeziy/dbanecdoteBot/blob/main/capybara.png" alt="Капибара">
    <p class="hint">Маленький текст</p>
 </section>
 <script src="https://webappcontent.telegram.org/js/jquery.min.js"></script>
@@ -171,6 +171,5 @@
         Telegram.WebApp.sendData(data);
     }
 </script>
-<script id="site3d-configurator-load" src="https://site3d.site/configurator/load.js" data-lang="ru"></script>
 </body>
 </html>
