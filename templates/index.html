@@ -113,9 +113,9 @@
         }
         img {
             width: 25%;
-        height: 25%;
-        object-fit: cover;
-        object-position: bottom;
+            height: 25%;
+            object-fit: cover;
+            object-position: bottom;
         }
     </style>
 
@@ -136,6 +136,9 @@
          width="400"
         height="400"/>
    <p class="hint">Маленький текст</p>
+    <pre>@dp.message(F.web_app_data)
+async def appdata(message: Message):
+    await message.answer(message.web_app_data.data)</pre>
 </section>
 <script src="https://webappcontent.telegram.org/js/jquery.min.js"></script>
 <script>
