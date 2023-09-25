@@ -112,10 +112,13 @@
             transform: translateY(100vh);
         }
         img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
             width: 25%;
             height: 25%;
             object-fit: cover;
-            object-position: bottom;
+            /*object-position: bottom;*/
         }
     </style>
 
@@ -123,7 +126,7 @@
 
 <body style="visibility: visible;">
 <section>
-   </h1>Просто текст</h1>
+   </h1 align="center">Просто текст</h1>
    <button id="main_btn" onclick="sendMessage('');">Кнопка данные</button>
    <button id="with_webview_btn" onclick="sendMessage('', true);">
         кнопка ничего
