@@ -17,7 +17,7 @@ logging.basicConfig(level=logging.DEBUG)
 @dp.message(Command("webview"))
 async def command_webview(message: Message):
     await message.answer(
-        "Good. Now you can try to send it via Webview",
+        "Нажмите на кнопку чтобы открыть веб-просмотр",
         reply_markup=InlineKeyboardMarkup(
             inline_keyboard=[
                 [
