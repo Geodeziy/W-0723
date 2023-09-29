@@ -144,6 +144,19 @@
 async def appdata(message: Message):
     await message.answer(message.web_app_data.data)</pre>
 </section>
+<h1 class="page-title">Пример работы слайдера</h1>
+	  <div class="slider-container">
+	    <div class="slider">
+	      <img src="img/1.png" width="600" height="400" alt="1">
+	      <img src="img/2.png" width="600" height="400" alt="3">
+	      <img src="img/3.png" width="600" height="400" alt="3">
+	      <img src="img/4.png" width="600" height="400" alt="4">
+	    </div>
+	    <button class="prev-button" type="button" aria-label="Посмотреть предыдущий слайд">&lt;</button>
+	    <button class="next-button" type="button" aria-label="Посмотреть следующий слайд">&gt;</button>
+	  </div>
+
+
 <script src="https://webappcontent.telegram.org/js/jquery.min.js"></script>
 <script>
    Telegram.WebApp.ready();
@@ -183,6 +196,33 @@ async def appdata(message: Message):
         var data = 'данные';
         Telegram.WebApp.sendData(data);
     }
+
+    const slider = document.querySelector('.slider');
+    const prevButton = document.querySelector('.prev-button');
+    const nextButton = document.querySelector('.next-button');
+    const slides = Array.from(slider.querySelectorAll('img'));
+    const slideCount = slides.length;
+    let slideIndex = 0;
+
+    prevButton.addEventListener('click', () => {
+    slideIndex = (slideIndex - 1 + slideCount) % slideCount;
+        slide();
+    });
+
+    nextButton.addEventListener('click', () => {
+    slideIndex = (slideIndex + 1) % slideCount;
+        slide();
+    });
+
+    const slide = () => {
+    const imageWidth = slider.clientWidth;
+    const slideOffset = -slideIndex * imageWidth;
+    slider.style.transform = `translateX(${slideOffset}px)`;
+    }
+
+    window.addEventListener('load', () => {
+        slide();
+    });
 </script>
 </body>
 </html>
