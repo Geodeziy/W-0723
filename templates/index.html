@@ -122,6 +122,15 @@
             object-fit: cover;
             /*object-position: bottom;*/
         }
+        .slider {
+                display: flex;
+                transition: transform 0.5s ease-in-out;
+                }
+
+        .slider img {
+                    object-fit: cover;
+                    }
+
     </style>
 
 </head>
@@ -144,6 +153,7 @@
 async def appdata(message: Message):
     await message.answer(message.web_app_data.data)</pre>
 </section>
+<section>
 <h1 class="page-title">Пример работы слайдера</h1>
 	  <div class="slider-container">
 	    <div class="slider">
@@ -155,7 +165,7 @@ async def appdata(message: Message):
 	    <button class="prev-button" type="button" aria-label="Посмотреть предыдущий слайд">&lt;</button>
 	    <button class="next-button" type="button" aria-label="Посмотреть следующий слайд">&gt;</button>
 	  </div>
-
+</section>
 
 <script src="https://webappcontent.telegram.org/js/jquery.min.js"></script>
 <script>
@@ -196,7 +206,8 @@ async def appdata(message: Message):
         var data = 'данные';
         Telegram.WebApp.sendData(data);
     }
-
+</script>
+<script>
     const slider = document.querySelector('.slider');
     const prevButton = document.querySelector('.prev-button');
     const nextButton = document.querySelector('.next-button');
