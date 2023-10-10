@@ -141,9 +141,7 @@
         </h1 align="center">Просто текст</h1>
     </div>
    <button id="main_btn" onclick="sendMessage('');">Кнопка данные</button>
-   <button id="no_btn" onclick="sendMessage0('');">
-        кнопка ничего
-   </button>
+   <button id="no_btn" onclick="sendMessage0('');">кнопка ничего</button>
     <button onclick="toggleMainButton(this);">Скрыть основную кнопку</button>
     <div id="btn_status" class="hint" style="display: none;">
     </div>
@@ -205,8 +203,7 @@ async def appdata(message: Message):
     var data0 = 1;
 
     function sendMessage(){
-        var data = data0;
-        Telegram.WebApp.sendData(data);
+        Telegram.WebApp.sendData(data0);
     }
 
     function sendMessage0(){
