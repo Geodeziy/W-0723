@@ -200,14 +200,14 @@ async def appdata(message: Message):
         }
     }
 
-    var data0 = 1;
+    var data0 = '1';
 
     function sendMessage(){
-        Telegram.WebApp.sendData(data0.toString());
+        Telegram.WebApp.sendData(data0);
     }
 
     function sendMessage0(){
-        data0 = data0 + 1;
+        data0 = data0 + '2';
     }
 </script>
 <script>
