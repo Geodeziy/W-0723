@@ -132,7 +132,7 @@
                     }
 
         .title{
-	        font-size: 36px;
+	        font-size: 200%;
 	        padding-top: 1%;
             padding-left: 1%;
 	        text-align: left;
@@ -154,6 +154,7 @@
     </style>
 
 </head>
+
 <div id = "wrap">
 	<header>
 <div class = "title">Название справочника</div>
@@ -162,6 +163,7 @@
 </ul>
     </header>
 </div>
+
 <body style="visibility: visible;">
 <section>
     <div class="block1">
@@ -178,6 +180,7 @@
 async def appdata(message: Message):
     await message.answer(message.web_app_data.data)</pre>
 </section>
+
 <section>
 <h1 class="page-title">Пример работы слайдера</h1>
 	  <div class="slider-container">
@@ -191,6 +194,13 @@ async def appdata(message: Message):
 	    <button class="next-button" type="button" aria-label="Посмотреть следующий слайд">&gt;</button>
 	  </div>
 </section>
+
+<section>
+    <button id="btn4" onclick="saveinLocalStorage('MB', '1024');">Добавить в избранное</button>
+    <button id="btn5" onclick="deletelastLocalStorage('');">Удалить из избранного</button>
+    <button id="btn6" onclick="sendfromLocalStorage('');">Отправить</button>
+</section>
+
 <footer>
     <p><a href="#" title="Вернуться к началу" class="topbutton">^Наверх</a>
         <br>Какая-то информация об авторском праве или может информация об авторе статьи?
@@ -242,6 +252,49 @@ async def appdata(message: Message):
         data0 = data0 + '2';
         var elem = document.getElementById("no_btn");
         elem.innerHTML = data0;
+    }
+
+    // function rememberFavorites(){
+    //     // Telegram.WebApp.sendData(data0);
+    // }
+    //
+    // function deleteFavorites(){
+    //     // Telegram.WebApp.sendData(data0);
+    // }
+
+    function saveinLocalStorage(key, value) {
+        localStorage.setItem(key, value);
+    }
+
+    function getfromLocalStorage() {
+        // return localStorage.getItem(key);
+        var allvalues = [];
+        for (var i = 0; i < localStorage.length; i++) {
+            var key = localStorage.key(i);
+            var value = localStorage.getItem(key);
+            allvalues.push({key: key, value: value});
+          }
+      return allvalues;
+    }
+
+    function deletelastLocalStorage() {
+      var elemlength = localStorage.length;
+
+      // Проверяем, есть ли элементы для удаления
+      if (elemlength > 0) {
+        // Получаем ключ последнего элемента
+        var keylast = localStorage.key(elemlength - 1);
+
+        // Удаляем последний элемент
+        localStorage.removeItem(keylast);
+      } else {
+        console.log('Нет элементов для удаления в localStorage');
+      }
+    }
+
+    function sendfromLocalStorage() {
+        var data = getfromLocalStorage();
+        Telegram.WebApp.sendData(data);
     }
 </script>
 <script>
