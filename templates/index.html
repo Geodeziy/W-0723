@@ -294,7 +294,7 @@ async def appdata(message: Message):
 
     function sendfromLocalStorage() {
         var data = getfromLocalStorage();
-        Telegram.WebApp.sendData(data);
+        Telegram.WebApp.sendData(data.toString());
     }
 </script>
 <script>
