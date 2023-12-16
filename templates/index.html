@@ -151,6 +151,17 @@
 	        text-align: right;
             color: var(--tg-theme-button-text-color);
         }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                    color: #eee;
+                    background: #121212;
+            }
+            body a {
+                    color: #809fff;
+            }
+        }
+
     </style>
 
 </head>
@@ -159,51 +170,20 @@
 	<header>
 <div class = "title">Название справочника</div>
 <ul class = "menu">
-		<li><a href = "https://github.com/Geodeziy/W-0723">Что-то</a></li>
+		<li><a href = "https://github.com/Geodeziy/W-0723">Github</a></li>
 </ul>
     </header>
 </div>
 
 <body style="visibility: visible;">
 <section>
-    <div class="block1">
-        </h1 align="center">Просто текст</h1>
-    </div>
-   <button id="main_btn" onclick="sendMessage('');">Кнопка данные</button>
-   <button id="no_btn" onclick="sendMessage0('');">кнопка ничего</button>
-    <button onclick="toggleMainButton(this);">Скрыть основную кнопку</button>
-    <div id="btn_status" class="hint" style="display: none;">
-    </div>
-    <img src="https://geodeziy.github.io/dbanecdoteBot/capybara.png" alt="Капибара"/>
-   <p class="hint">Маленький текст</p>
-    <pre>@dp.message(F.web_app_data)
-async def appdata(message: Message):
-    await message.answer(message.web_app_data.data)</pre>
-</section>
-
-<section>
-<h1 class="page-title">Пример работы слайдера</h1>
-	  <div class="slider-container">
-	    <div class="slider">
-	      <img src="https://geodeziy.github.io/W-0723/img/1.png" width="600" height="400" alt="1">
-	      <img src="https://geodeziy.github.io/W-0723/img/2.png" width="600" height="400" alt="3">
-	      <img src="https://geodeziy.github.io/W-0723/img/3.png" width="600" height="400" alt="3">
-	      <img src="https://geodeziy.github.io/W-0723/img/4.png" width="600" height="400" alt="4">
-	    </div>
-	    <button class="prev-button" type="button" aria-label="Посмотреть предыдущий слайд">&lt;</button>
-	    <button class="next-button" type="button" aria-label="Посмотреть следующий слайд">&gt;</button>
-	  </div>
-</section>
-
-<section>
-    <button id="btn4" onclick="saveinLocalStorage('MB', '1024');">Добавить в избранное</button>
-    <button id="btn5" onclick="deletelastLocalStorage('');">Удалить из избранного</button>
-    <button id="btn6" onclick="sendfromLocalStorage('');">Отправить</button>
+    <h1 align="left">Центральный процессор</h1>
+    <pre>Центральный процессор — электронный блок либо интегральная схема, исполняющая машинные инструкции (код программ), главная часть аппаратного обеспечения компьютера или программируемого логического контроллера.</pre>
 </section>
 
 <footer>
     <p><a href="#" title="Вернуться к началу" class="topbutton">^Наверх</a>
-        <br>Какая-то информация об авторском праве или может информация об авторе статьи?
+        <br>Какая-то информация об авторском праве
     </p>
 </footer>
 
@@ -254,48 +234,7 @@ async def appdata(message: Message):
         elem.innerHTML = data0;
     }
 
-    // function rememberFavorites(){
-    //     // Telegram.WebApp.sendData(data0);
-    // }
-    //
-    // function deleteFavorites(){
-    //     // Telegram.WebApp.sendData(data0);
-    // }
 
-    function saveinLocalStorage(key, value) {
-        localStorage.setItem(key, value);
-    }
-
-    function getfromLocalStorage() {
-        // return localStorage.getItem(key);
-        var allvalues = [];
-        for (var i = 0; i < localStorage.length; i++) {
-            var key = localStorage.key(i);
-            var value = localStorage.getItem(key);
-            allvalues.push({key: key, value: value});
-          }
-      return allvalues;
-    }
-
-    function deletelastLocalStorage() {
-      var elemlength = localStorage.length;
-
-      // Проверяем, есть ли элементы для удаления
-      if (elemlength > 0) {
-        // Получаем ключ последнего элемента
-        var keylast = localStorage.key(elemlength - 1);
-
-        // Удаляем последний элемент
-        localStorage.removeItem(keylast);
-      } else {
-        console.log('Нет элементов для удаления в localStorage');
-      }
-    }
-
-    function sendfromLocalStorage() {
-        var data = getfromLocalStorage();
-        Telegram.WebApp.sendData(data.toString());
-    }
 </script>
 <script>
     const slider = document.querySelector('.slider');
