@@ -36,9 +36,16 @@ async def appdata(message: Message):
     m = message.web_app_data.data
     if m.startswith('id_'):
         async with aiosqlite.connect("data.db") as db:
-            await db.execute("INSERT OR IGNORE INTO favourites (user_id, string_id) VALUES (?, ?)",
-                             (message.from_user.id, m[3:]))
-            await db.commit()
+            cursor = await db.execute("SELECT COUNT(*) FROM favourites WHERE user_id = ? AND string_id = ?",
+                                      (message.from_user.id, m[3:]))
+            row_count = await cursor.fetchone()
+            if row_count[0] == 0:
+                await db.execute("INSERT OR IGNORE INTO favourites (user_id, string_id) VALUES (?, ?)",
+                                               (message.from_user.id, m[3:]))
+                await db.commit()
+            else:
+                pass
+                # await message.answer('Такая строка уже существует')
     await message.answer(message.web_app_data.data)
 
 
