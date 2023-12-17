@@ -1,6 +1,6 @@
 from aiogram import Bot, Dispatcher, F, Router, types
 from aiogram.filters import Command, CommandObject
-from aiogram.types import Message, WebAppInfo, WebAppData,  MenuButtonWebApp, InlineKeyboardMarkup, InlineKeyboardButton
+from aiogram.types import Message, WebAppInfo, WebAppData, MenuButtonWebApp, InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.utils.keyboard import InlineKeyboardBuilder, ReplyKeyboardBuilder
 import asyncio
 import os
@@ -12,7 +12,6 @@ import aiosqlite
 bot = Bot(token=TOKEN)
 dp = Dispatcher()
 logging.basicConfig(level=logging.DEBUG)
-
 
 
 @dp.message(Command("webview"))
@@ -37,7 +36,8 @@ async def appdata(message: Message):
     m = message.web_app_data.data
     if m.startswith('id_'):
         async with aiosqlite.connect("data.db") as db:
-            await db.execute("INSERT OR IGNORE INTO favourites (user_id, string_id) VALUES (?, ?)", (message.from_user.id, m[3:]))
+            await db.execute("INSERT OR IGNORE INTO favourites (user_id, string_id) VALUES (?, ?)",
+                             (message.from_user.id, m[3:]))
             await db.commit()
     await message.answer(message.web_app_data.data)
 
@@ -72,6 +72,7 @@ async def command_webview(message: Message):
         await message.answer(str(result))
     else:
         await message.answer('None')
+
 
 async def main():
     dp.include_router(start.router)
