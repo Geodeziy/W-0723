@@ -42,7 +42,7 @@ async def appdata(message: Message):
     await message.answer(message.web_app_data.data)
 
 
-async def get_string_values_by_user_id(user_id):
+async def get_values_by_user_id(user_id):
     async with aiosqlite.connect("data.db") as db:
         cursor = await db.execute('''
                     SELECT string_id
@@ -66,8 +66,8 @@ async def get_string_values_by_user_id(user_id):
 
 
 @dp.message(Command('list'))
-async def command_webview(message: Message):
-    result = await get_string_values_by_user_id(message.from_user.id)
+async def f_list(message: Message):
+    result = await get_values_by_user_id(message.from_user.id)
     if result:
         await message.answer(str(result))
     else:
