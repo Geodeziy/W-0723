@@ -25,7 +25,7 @@
         }
 
         button {
-            display: inline;
+            display: inline-block;
             font-size: 14px;
             padding: 5px 10px;
             /*background: var(--tg-theme-button-color);*/
@@ -176,7 +176,7 @@
 <section>
     <h1 align="left">Центральный процессор</h1>
     <pre>Центральный процессор — электронный блок либо интегральная схема, исполняющая машинные инструкции (код программ), главная часть аппаратного обеспечения компьютера или программируемого логического контроллера.</pre>
-    <button id="btn1" onclick="sendMessage(1);">Сохранить в своём списке</button>
+    <button id="btn1" onclick="sendMessage('1');">Сохранить в своём списке</button>
 </section>
 
 <footer>
@@ -223,7 +223,8 @@
     var data0 = '1';
 
     function sendMessage(number){
-        Telegram.WebApp.sendData(number);
+        var data = number
+        Telegram.WebApp.sendData(data);
     }
 
     function sendMessage0(){
