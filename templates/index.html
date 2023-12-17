@@ -17,7 +17,7 @@
             font-size: 16px;
             margin: 0;
             padding: 0;
-            color-scheme: var(--tg-color-scheme);
+            color-scheme: dark;
         }
 
         a {
@@ -223,8 +223,7 @@
     var data0 = '1';
 
     function sendMessage(number){
-        var data = number
-        Telegram.WebApp.sendData(data);
+        Telegram.WebApp.sendData(number);
     }
 
     function sendMessage0(){
