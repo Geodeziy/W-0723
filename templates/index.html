@@ -25,16 +25,15 @@
         }
 
         button {
-            display: inline-block;
+            display: inline;
             font-size: 14px;
             padding: 5px 10px;
             /*background: var(--tg-theme-button-color);*/
-            background: #228b22;
             color: var(--tg-theme-button-text-color);
             border: none;
             border-radius: 4px;
             /*background-color: var(--tg-theme-button-color, #6600ff);*/
-            background-color: #228b22;
+            background-color: #a8a8a8;
         }
 
         button[disabled] {
@@ -79,7 +78,7 @@
         }
 
         pre {
-            background: rgba(0, 0, 0, .07);
+            background: var(--tg-theme-pre-color, #222222);
             border-radius: 4px;
             padding: 4px;
             margin: 7px 0;
@@ -134,7 +133,7 @@
         .title{
 	        font-size: 200%;
 	        padding-top: 1%;
-            padding-left: 1%;
+            padding-left: 2%;
 	        text-align: left;
             color: var(--tg-theme-button-text-color);
             }
@@ -145,20 +144,18 @@
             right: 5%;
             }
         footer{
+            position: absolute;
             font-size: 14px;
 	        padding-top: 1%;
-            padding-right: 1%;
+            padding-left: 57%;
 	        text-align: right;
             color: var(--tg-theme-button-text-color);
         }
 
         @media (prefers-color-scheme: dark) {
             body {
-                    color: #eee;
-                    background: #121212;
-            }
-            body a {
-                    color: #809fff;
+                    color: var(--tg-theme-text-color, #ffffff);
+                    background: var(--tg-theme-text-color, #000000);
             }
         }
 
@@ -179,6 +176,7 @@
 <section>
     <h1 align="left">Центральный процессор</h1>
     <pre>Центральный процессор — электронный блок либо интегральная схема, исполняющая машинные инструкции (код программ), главная часть аппаратного обеспечения компьютера или программируемого логического контроллера.</pre>
+    <button id="btn1" onclick="sendMessage(1);">Сохранить в своём списке</button>
 </section>
 
 <footer>
@@ -224,8 +222,8 @@
 
     var data0 = '1';
 
-    function sendMessage(){
-        Telegram.WebApp.sendData(data0);
+    function sendMessage(number){
+        Telegram.WebApp.sendData(number);
     }
 
     function sendMessage0(){
