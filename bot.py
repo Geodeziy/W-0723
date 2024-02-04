@@ -73,7 +73,7 @@ async def get_values_by_user_id(user_id):
 
 
 @dp.message(Command('list'))
-async def f_list(message: Message):
+async def user_list(message: Message):
     result = await get_values_by_user_id(message.from_user.id)
     if result:
         await message.answer(str(result))
