@@ -46,7 +46,8 @@ async def appdata(message: Message):
             else:
                 pass
                 # await message.answer('Такая строка уже существует')
-    await message.answer(message.web_app_data.data)
+    # await message.answer(message.web_app_data.data)
+    await message.answer('Сохранение произошло успешно.')
 
 
 async def get_values_by_user_id(user_id):
