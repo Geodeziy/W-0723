@@ -162,7 +162,12 @@
                     background: #000000;
             }
         }
-
+        .computer-scheme {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+        padding: 4px;
+}
     </style>
 
 </head>
@@ -177,19 +182,24 @@
 </div>
 
 <body style="visibility: visible;">
+<div class="computer-scheme">
+    <img src="/img/computer.jpg" alt="Схема компьютера">
+    <button id="processor" style="position: absolute; top: 20%; left: 30%;">Процессор</button>
+    <button id="graphics-card" style="position: absolute; top: 40%; left: 50%;">Видеокарта</button>
+    <button id="ram" style="position: absolute; top: 60%; left: 70%;">Оперативная память</button>
+</div>
 
-
-<section>
+<section id="processor-section">
     <h1 align="left">Центральный процессор</h1>
     <pre>Центральный процессор — электронный блок либо интегральная схема, исполняющая машинные инструкции (код программ), главная часть аппаратного обеспечения компьютера или программируемого логического контроллера.</pre>
     <button id="btn1" onclick="sendMessage('id_1');">Сохранить в своём списке</button>
 </section>
-<section>
+<section id="bios-section">
     <h1 align="left">BIOS</h1>
     <pre>BIOS (basic input/output system — «базовая система ввода-вывода»), также БСВВ — набор микропрограмм, реализующих низкоуровневые API для работы с аппаратным обеспечением компьютера, а также создающих необходимую программную среду для запуска операционной системы у IBM PC-совместимых компьютеров.</pre>
     <button id="btn2" onclick="sendMessage('id_2');">Сохранить в своём списке</button>
 </section>
-<section>
+<section id="ram-section">
     <h1 align="left">RAM (ОЗУ)</h1>
     <pre>Оперативная память (ОЗУ) — это форма электронной памяти компьютера, которую можно читать и изменять в любом порядке, обычно используемую для хранения рабочих данных и машинного кода. Устройство оперативной памяти позволяет считывать или записывать элементы данных практически за одинаковое время независимо от физического расположения данных внутри памяти, в отличие от других носителей данных с прямым доступом.</pre>
     <figure>
@@ -287,6 +297,17 @@
     }
 
     updateSlider();
+</script>
+<script>
+    document.getElementById("processor").addEventListener("click", function() {
+    window.location.href = "#processor-section";
+});
+    document.getElementById("ram").addEventListener("click", function() {
+    window.location.href = "#ram-section";
+});
+    document.getElementById("motherboard").addEventListener("click", function() {
+    window.location.href = "#motherboard-section";
+});
 </script>
 </body>
 </html>
