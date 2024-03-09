@@ -182,6 +182,17 @@
             height: 90%;
             object-fit: cover;
         }
+        .computer-button {
+            display: inline-block;
+            font-size: 20px;
+            padding: 5px 10px;
+            /*background: var(--tg-theme-button-color);*/
+            color: var(--tg-theme-button-text-color);
+            border: none;
+            border-radius: 4px;
+            /*background-color: var(--tg-theme-button-color, #6600ff);*/
+            background-color: #363b39;
+        }
     </style>
 
 </head>
@@ -201,9 +212,9 @@
         <img src="https://geodeziy.github.io/W-0723/img/computer.jpg" alt="Схема компьютера" class="img-computer">
         <figcaption>Состав системного блока</figcaption>
     </figure>
-    <button id="processor" style="position: absolute; top: 20%; left: 30%;">Процессор</button>
-    <button id="graphics-card" style="position: absolute; top: 40%; left: 50%;">Видеокарта</button>
-    <button id="ram" style="position: absolute; top: 60%; left: 70%;">Оперативная память</button>
+    <button id="processor" style="position: absolute; top: 28%; left: 28%;" class="computer-button">Процессор</button>
+    <button id="graphics-card" style="position: absolute; top: 40%; left: 50%;" class="computer-button">Видеокарта</button>
+    <button id="ram" style="position: absolute; top: 24.5%; left: 42%;" class="computer-button">RAM</button>
 </div>
 
 <section id="processor-section">
