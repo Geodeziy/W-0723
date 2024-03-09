@@ -118,8 +118,8 @@
             display: block;
             margin-left: auto;
             margin-right: auto;
-            width: 30%;
-            height: 30%;
+            width: 45%;
+            height: 45%;
             object-fit: cover;
             /*object-position: bottom;*/
         }
@@ -163,11 +163,21 @@
             }
         }
         .computer-scheme {
-    position: relative;
-    width: 100%;
-    max-width: 800px;
-        padding: 4px;
+            position: relative;
+            width: 100%;
+            /*max-width: 800px;*/
+            /*padding: 4px;*/
+            padding: 15px 15px 65px;
+            text-align: center;
 }
+        .img-computer {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+            height: 50%;
+            object-fit: cover;
+        }
     </style>
 
 </head>
@@ -183,7 +193,10 @@
 
 <body style="visibility: visible;">
 <div class="computer-scheme">
-    <img src="https://geodeziy.github.io/W-0723/img/computer.jpg" alt="Схема компьютера">
+    <figure>
+        <img src="https://geodeziy.github.io/W-0723/img/computer.jpg" alt="Схема компьютера" class="img-computer">
+        <figcaption>Состав системного блока</figcaption>
+    </figure>
     <button id="processor" style="position: absolute; top: 20%; left: 30%;">Процессор</button>
     <button id="graphics-card" style="position: absolute; top: 40%; left: 50%;">Видеокарта</button>
     <button id="ram" style="position: absolute; top: 60%; left: 70%;">Оперативная память</button>
