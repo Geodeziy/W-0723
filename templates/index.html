@@ -182,7 +182,7 @@
             display: block;
             margin-left: auto;
             margin-right: auto;
-            width: auto;
+            width: 100%;
             height: auto;
             object-fit: cover;
         }
@@ -220,8 +220,8 @@
     <button id="processor" style="position: absolute; top: 27.5%; left: 41%;" class="computer-button">Процессор</button>
     <button id="graphics-card" style="position: absolute; top: 50%; left: 46%;" class="computer-button">Видеокарта</button>
     <button id="ram" style="position: absolute; top: 24%; left: 46.9%;" class="computer-button">ОЗУ</button>
-    <button id="hdd" style="position: absolute; top: 52.25%; left: 52.5%;" class="computer-button">HDD</button>
-    <button id="fan" style="position: absolute; top: 54%; left: 37.5%;" class="computer-button">Вентилятор</button>
+    <button id="disk-storage" style="position: absolute; top: 52.25%; left: 52.5%;" class="computer-button">Устройство хранения информации</button>
+    <button id="cooling-system" style="position: absolute; top: 54%; left: 37.5%;" class="computer-button">Вентилятор</button>
     <button id="motherboard" style="position: absolute; top: 74%; left: 37.5%; right: 53.7%;" class="computer-button">Материнская плата</button>
     <button id="psu" style="position: absolute; top: 11%; left: 37.5%;" class="computer-button">Блок питания</button>
 </div>
@@ -231,11 +231,6 @@
     <pre>Центральный процессор — электронный блок либо интегральная схема, исполняющая машинные инструкции (код программ), главная часть аппаратного обеспечения компьютера или программируемого логического контроллера.</pre>
     <button id="btn1" onclick="sendMessage('id_1');">Сохранить в своём списке</button>
 </section>
-<section id="bios-section">
-    <h1 align="left">BIOS</h1>
-    <pre>BIOS (basic input/output system — «базовая система ввода-вывода»), также БСВВ — набор микропрограмм, реализующих низкоуровневые API для работы с аппаратным обеспечением компьютера, а также создающих необходимую программную среду для запуска операционной системы у IBM PC-совместимых компьютеров.</pre>
-    <button id="btn2" onclick="sendMessage('id_2');">Сохранить в своём списке</button>
-</section>
 <section id="ram-section">
     <h1 align="left">RAM (ОЗУ)</h1>
     <pre>Оперативная память (ОЗУ) — это форма электронной памяти компьютера, которую можно читать и изменять в любом порядке, обычно используемую для хранения рабочих данных и машинного кода. Устройство оперативной памяти позволяет считывать или записывать элементы данных практически за одинаковое время независимо от физического расположения данных внутри памяти, в отличие от других носителей данных с прямым доступом.</pre>
@@ -243,8 +238,38 @@
         <img src="https://geodeziy.github.io/W-0723/img/Drum_Memory_in_Moscow_Politechnical_Museum.jpg"
             alt="Изображение магнитного барабана типа МБ-11."/>
         <figcaption>Изображение магнитного барабана типа МБ-11, использовавшегося в качестве компьютерной памяти в 1950-х — начале 1960-х годов.</figcaption>
-        <button id="btn3" onclick="sendMessage('id_3');">Сохранить в своём списке</button>
+        <button id="btn3" onclick="sendMessage('id_2');">Сохранить в своём списке</button>
     </figure>
+</section>
+<section id="graphics-card-section">
+    <h1 align="left">Видеокарта</h1>
+    <pre>Графическая карта (также называемая видеокартой) — это компьютерная плата расширения, которая создаёт поток графического вывода на устройство отображения, такое как монитор. Основным компонентом видеокарты является графический процессор, или GPU, который выполняет необходимые вычисления. Однако аббревиатура "GPU" также может неправильно использоваться для обозначения всей видеокарты.</pre>
+    <button id="btn4" onclick="sendMessage('id_3');">Сохранить в своём списке</button>
+</section>
+<section id="storage-section">
+    <h1 align="left">Устройство хранения информации</h1>
+    <pre>Устройство хранения информации предназначено для хранения информации. Сейчас встречаются два типа таких устройств: HDD (накопитель на жёстких магнитных дисках) и SDD (твердотельный накопитель). Первый работает на принципе магнитной записи. Он записывает информации на вращающиеся магнитные диски или магнитные ленты. Второй тип накопителей представляет собой устройства, хранящие данные в микросхемах. Они обеспечивают более высокие скорости доступа к данным, чем накопители на магнитных лентах.</pre>
+    <button id="btn5" onclick="sendMessage('id_4');">Сохранить в своём списке</button>
+</section>
+<section id="motherboard-section">
+    <h1 align="left">Материнская (системная) плата</h1>
+    <pre>Материнская (системная) плата — это основная печатная плата в компьютерах общего назначения и других расширяемых системах. Она поддерживает и обеспечивает связь между многими важнейшими электронными компонентами системы, такими как центральный процессор (CPU) и память, а также обладает разъемами для других периферийных устройств. В отличие от объединительной платы, материнская плата обычно содержит важные подсистемы, такие как центральный процессор, контроллеры ввода/вывода набора микросхем и памяти, интерфейсные разъемы и другие компоненты, интегрированные для общего использования.</pre>
+    <button id="btn6" onclick="sendMessage('id_5');">Сохранить в своём списке</button>
+</section>
+<section id="psu-section">
+    <h1 align="left">Блок питания</h1>
+    <pre>Встроенный источник электропитания компьютера — устройство, предназначенное для преобразования напряжения переменного тока от сети в напряжение постоянного тока с целью питания компьютера или компьютер-сервера. Большинство современных источников питания для настольных персональных компьютеров соответствуют спецификации ATX, которая включает в себя форм-фактор и допуски по напряжению. Когда блок питания ATX подключен к электросети, он всегда обеспечивает 5-вольтовое резервное питание (5VSB), чтобы обеспечить работу компьютера в режиме ожидания и некоторых периферийных устройств. Блоки питания ATX включаются и выключаются по сигналу с материнской платы. Они также подают сигнал на материнскую плату, указывающий, когда напряжение постоянного тока соответствует заданному, чтобы компьютер мог безопасно включиться и загрузиться. Самым последним стандартом блока питания ATX является версия 3.0 по состоянию на середину 2022 года.</pre>
+    <button id="btn7" onclick="sendMessage('id_6');">Сохранить в своём списке</button>
+</section>
+<section id="cooling-system-section">
+    <h1 align="left">Система охлаждения</h1>
+    <pre>Система охлаждения компьютера — набор средств для отвода тепла (т.е. охлаждения, холодильная установка) от нагревающихся в процессе работы компьютерных компонентов (процессор, чипсет, транзисторы и диоды, и пр.). Существуют различные способы отвода тепла: воздушное, жидкостное, термоэлектрическое, с помощью фазового перехода.</pre>
+    <button id="btn8" onclick="sendMessage('id_7');">Сохранить в своём списке</button>
+</section>
+<section id="bios-section">
+    <h1 align="left">BIOS</h1>
+    <pre>BIOS (basic input/output system — «базовая система ввода-вывода»), также БСВВ — набор микропрограмм, реализующих низкоуровневые API для работы с аппаратным обеспечением компьютера, а также создающих необходимую программную среду для запуска операционной системы у IBM PC-совместимых компьютеров.</pre>
+    <button id="btn2" onclick="sendMessage('id_8');">Сохранить в своём списке</button>
 </section>
 
 <footer>
@@ -348,11 +373,11 @@
     document.getElementById("graphics-card").addEventListener("click", function() {
     window.location.href = "#graphics-card-section";
 });
-    document.getElementById("hdd").addEventListener("click", function() {
+    document.getElementById("disk-storage").addEventListener("click", function() {
     window.location.href = "#storage-section";
 });
-    document.getElementById("fan").addEventListener("click", function() {
-    window.location.href = "#fan-section";
+    document.getElementById("cooling-system").addEventListener("click", function() {
+    window.location.href = "#cooling-system-section";
 });
     document.getElementById("psu").addEventListener("click", function() {
     window.location.href = "#psu-section";
