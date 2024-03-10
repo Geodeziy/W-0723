@@ -185,11 +185,11 @@
         .computer-button {
             display: inline-block;
             font-size: 20px;
-            padding: 5px 10px;
+            padding: 1% 1%;
             /*background: var(--tg-theme-button-color);*/
             color: var(--tg-theme-button-text-color);
             border: none;
-            border-radius: 4px;
+            border-radius: 1%;
             /*background-color: var(--tg-theme-button-color, #6600ff);*/
             background-color: #363b39;
         }
@@ -207,14 +207,19 @@
 </div>
 
 <body style="visibility: visible;">
+
 <div class="computer-scheme">
     <figure>
         <img src="https://geodeziy.github.io/W-0723/img/computer.jpg" alt="Схема компьютера" class="img-computer">
         <figcaption>Состав системного блока</figcaption>
     </figure>
-    <button id="processor" style="position: absolute; top: 28%; left: 28%;" class="computer-button">Процессор</button>
-    <button id="graphics-card" style="position: absolute; top: 40%; left: 50%;" class="computer-button">Видеокарта</button>
-    <button id="ram" style="position: absolute; top: 24.5%; left: 42%;" class="computer-button">RAM</button>
+    <button id="processor" style="position: absolute; top: 27.5%; left: 27.75%;" class="computer-button">Процессор</button>
+    <button id="graphics-card" style="position: absolute; top: 52%; left: 37.5%;" class="computer-button">Графический ускоритель</button>
+    <button id="ram" style="position: absolute; top: 24%; left: 37.75%;" class="computer-button">Оперативная память</button>
+    <button id="hdd" style="position: absolute; top: 53.5%; left: 54%;" class="computer-button">Накопитель на жёстких магнитных дисках</button>
+    <button id="fan" style="position: absolute; top: 55.5%; left: 12.75%;" class="computer-button">Вентилятор</button>
+    <button id="motherboard" style="position: absolute; top: 78.5%; left: 19%;" class="computer-button">Материнская (системная) плата</button>
+    <button id="psu" style="position: absolute; top: 11%; left: 17.5%;" class="computer-button">Блок питания</button>
 </div>
 
 <section id="processor-section">
@@ -335,6 +340,18 @@
 });
     document.getElementById("motherboard").addEventListener("click", function() {
     window.location.href = "#motherboard-section";
+});
+    document.getElementById("graphics-card").addEventListener("click", function() {
+    window.location.href = "#graphics-card-section";
+});
+    document.getElementById("hdd").addEventListener("click", function() {
+    window.location.href = "#storage-section";
+});
+    document.getElementById("fan").addEventListener("click", function() {
+    window.location.href = "#fan-section";
+});
+    document.getElementById("psu").addEventListener("click", function() {
+    window.location.href = "#psu-section";
 });
 </script>
 </body>
