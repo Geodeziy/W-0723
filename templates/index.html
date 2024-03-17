@@ -23,7 +23,7 @@
         }
 
         a {
-            color: var(--tg-theme-link-color, #2678b6);
+            color: #00ff00;
         }
 
         button {
@@ -77,6 +77,7 @@
 
         li {
             /*color: var(--tg-theme-hint-color, #a8a8a8);*/
+            margin-bottom: 10px;
         }
 
         textarea {
@@ -210,12 +211,21 @@
         }
         .knopka li {
             text-align: left;
+
         }
         .knopka button {
             width: auto;
             text-align: left;
         }
 
+        .knopka a {
+            color: #00ff00;
+            text-decoration: none;
+        }
+
+        .knopka img {
+            display: inline;
+        }
     </style>
 
 </head>
@@ -232,33 +242,33 @@
 <body style="visibility: visible;">
 
 <div class="knopka">
-    <li><button id="processor0" style="margin-bottom: 7px; margin-top: 0.5%">Процессор</button></li>
-    <li><button id="graphics-card0" style="margin-bottom: 7px">Видеоадаптер</button></li>
-    <li><button id="ram0" style="margin-bottom: 7px">Оперативная память</button></li>
-    <li><button id="disk-storage0" style="margin-bottom: 7px">Устройство хранения информации</button></li>
-    <li><button id="cooling-system0" style="margin-bottom: 7px">Системы охлаждения</button></li>
-    <li><button id="motherboard0" style="margin-bottom: 7px">Материнская плата</button></li>
-    <li><button id="psu0" style="margin-bottom: 7px">Питания компьютера</button></li>
-    <li><button id="toggleButton">Показать схему</button></li>
+    <p>В состав компьютера входят:</p>
+    <li><a href="#processor-section"><img src="/img/cpu.png" style="width: auto; height: 1em"> Процессор</a></li>
+    <li> <a href="#ram-section"><img src="/img/ram.png" style="width: auto; height: 1em"> Оперативная память</a></li>
+    <li><a href="#graphics-card-section"><img src="/img/videocard.png" style="width: 1em; height: 1em"> Видеокарта</a></li>
+    <li><a href="#storage-section"><img src="/img/storage.png" style="width: 1em; height: 1em"> Устройство хранения информации</a></li>
+    <li><a href="#motherboard-section"><img src="/img/motherboard.png" style="width: 1em; height: 1em"> Материнская плата</a></li>
+    <li><a href="#psu-section"><img src="/img/psu.png" style="width: 1em; height: 1em"> Блок питания компьютера</a></li>
+    <li><a href="#cooling-system-section"><img src="/img/coolingsystem.png" style="width: 1em; height: 1em"> Система охлаждения</a></li>
 </div>
-<div class="computer-scheme hidden">
-    <figure>
-        <img src="https://geodeziy.github.io/W-0723/img/computer.jpg" alt="Схема компьютера" class="img-computer">
-        <figcaption>Состав системного блока</figcaption>
-    </figure>
-    <button id="processor" style="position: absolute; top: 28%; left: 27.5%;" class="computer-button">Процессор</button>
-    <button id="graphics-card" style="position: absolute; top: 55%; left: 42%;" class="computer-button">Видеокарта</button>
-    <button id="ram" style="position: absolute; top: 24%; left: 42%;" class="computer-button">ОЗУ</button>
-    <button id="disk-storage" style="position: absolute; top: 57%; left: 60%;" class="computer-button">Устройство хранения информации</button>
-    <button id="cooling-system" style="position: absolute; top: 59%; left: 10.5%;" class="computer-button">Вентилятор</button>
-    <button id="motherboard" style="position: absolute; top: 84.5%; left: 18%; right: 53.7%;" class="computer-button">Материнская плата</button>
-    <button id="psu" style="position: absolute; top: 11%; left: 16%;" class="computer-button">Блок питания</button>
-</div>
+<!--<div class="computer-scheme hidden">-->
+<!--    <figure>-->
+<!--        <img src="https://geodeziy.github.io/W-0723/img/computer.jpg" alt="Схема компьютера" class="img-computer">-->
+<!--        <figcaption>Состав системного блока</figcaption>-->
+<!--    </figure>-->
+<!--    <button id="processor" style="position: absolute; top: 28%; left: 27.5%;" class="computer-button">Процессор</button>-->
+<!--    <button id="graphics-card" style="position: absolute; top: 55%; left: 42%;" class="computer-button">Видеокарта</button>-->
+<!--    <button id="ram" style="position: absolute; top: 24%; left: 42%;" class="computer-button">ОЗУ</button>-->
+<!--    <button id="disk-storage" style="position: absolute; top: 57%; left: 60%;" class="computer-button">Устройство хранения информации</button>-->
+<!--    <button id="cooling-system" style="position: absolute; top: 59%; left: 10.5%;" class="computer-button">Вентилятор</button>-->
+<!--    <button id="motherboard" style="position: absolute; top: 84.5%; left: 18%; right: 53.7%;" class="computer-button">Материнская плата</button>-->
+<!--    <button id="psu" style="position: absolute; top: 11%; left: 16%;" class="computer-button">Блок питания</button>-->
+<!--</div>-->
 
 <section id="processor-section">
     <h1 align="left" style="margin-bottom: auto">Центральный процессор</h1>
     <pre>Центральный процессор — электронный блок либо интегральная схема, исполняющая машинные инструкции (код программ), главная часть аппаратного обеспечения компьютера или программируемого логического контроллера.</pre>
-    <a href="#" title="Вернуться к началу" class="topbutton">Наверх</a>
+    <a href="#" title="Вернуться к началу" class="topbutton" style="color: #00ff00">Наверх</a>
     <button id="btn1" onclick="sendMessage('id_1');">Сохранить в своём списке</button>
 </section>
 <section id="ram-section">
@@ -268,49 +278,49 @@
         <img src="https://geodeziy.github.io/W-0723/img/Drum_Memory_in_Moscow_Politechnical_Museum.jpg"
             alt="Изображение магнитного барабана типа МБ-11."/>
         <figcaption>Изображение магнитного барабана типа МБ-11, использовавшегося в качестве компьютерной памяти в 1950-х — начале 1960-х годов.</figcaption>
-        <a href="#" title="Вернуться к началу" class="topbutton">Наверх</a>
+        <a href="#" title="Вернуться к началу" class="topbutton" style="color: #00ff00">Наверх</a>
         <button id="btn3" onclick="sendMessage('id_2');">Сохранить в своём списке</button>
     </figure>
 </section>
 <section id="graphics-card-section">
     <h1 align="left" style="margin-bottom: auto">Видеокарта</h1>
     <pre>Графическая карта (также называемая видеокартой) — это компьютерная плата расширения, которая создаёт поток графического вывода на устройство отображения, такое как монитор. Основным компонентом видеокарты является графический процессор, или GPU, который выполняет необходимые вычисления. Однако аббревиатура "GPU" также может неправильно использоваться для обозначения всей видеокарты.</pre>
-    <a href="#" title="Вернуться к началу" class="topbutton">Наверх</a>
+    <a href="#" title="Вернуться к началу" class="topbutton" style="color: #00ff00">Наверх</a>
     <button id="btn4" onclick="sendMessage('id_3');">Сохранить в своём списке</button>
 </section>
 <section id="storage-section">
     <h1 align="left" style="margin-bottom: auto">Устройство хранения информации</h1>
     <pre>Устройство хранения информации предназначено для хранения информации. Сейчас встречаются два типа таких устройств: HDD (накопитель на жёстких магнитных дисках) и SDD (твердотельный накопитель). Первый работает на принципе магнитной записи. Он записывает информации на вращающиеся магнитные диски или магнитные ленты. Второй тип накопителей представляет собой устройства, хранящие данные в микросхемах. Они обеспечивают более высокие скорости доступа к данным, чем накопители на магнитных лентах.</pre>
-    <a href="#" title="Вернуться к началу" class="topbutton">Наверх</a>
+    <a href="#" title="Вернуться к началу" class="topbutton" style="color: #00ff00">Наверх</a>
     <button id="btn5" onclick="sendMessage('id_4');">Сохранить в своём списке</button>
 </section>
 <section id="motherboard-section">
     <h1 align="left" style="margin-bottom: auto">Материнская (системная) плата</h1>
     <pre>Материнская (системная) плата — это основная печатная плата в компьютерах общего назначения и других расширяемых системах. Она поддерживает и обеспечивает связь между многими важнейшими электронными компонентами системы, такими как центральный процессор (CPU) и память, а также обладает разъемами для других периферийных устройств. В отличие от объединительной платы, материнская плата обычно содержит важные подсистемы, такие как центральный процессор, контроллеры ввода/вывода набора микросхем и памяти, интерфейсные разъемы и другие компоненты, интегрированные для общего использования.</pre>
-    <a href="#" title="Вернуться к началу" class="topbutton">Наверх</a>
+    <a href="#" title="Вернуться к началу" class="topbutton" style="color: #00ff00">Наверх</a>
     <button id="btn6" onclick="sendMessage('id_5');">Сохранить в своём списке</button>
 </section>
 <section id="psu-section">
     <h1 align="left" style="margin-bottom: auto">Блок питания</h1>
     <pre>Встроенный источник электропитания компьютера — устройство, предназначенное для преобразования напряжения переменного тока от сети в напряжение постоянного тока с целью питания компьютера или компьютер-сервера. Большинство современных источников питания для настольных персональных компьютеров соответствуют спецификации ATX, которая включает в себя форм-фактор и допуски по напряжению. Когда блок питания ATX подключен к электросети, он всегда обеспечивает 5-вольтовое резервное питание (5VSB), чтобы обеспечить работу компьютера в режиме ожидания и некоторых периферийных устройств. Блоки питания ATX включаются и выключаются по сигналу с материнской платы. Они также подают сигнал на материнскую плату, указывающий, когда напряжение постоянного тока соответствует заданному, чтобы компьютер мог безопасно включиться и загрузиться. Самым последним стандартом блока питания ATX является версия 3.0, по состоянию на середину 2022 года.</pre>
-    <a href="#" title="Вернуться к началу" class="topbutton">Наверх</a>
+    <a href="#" title="Вернуться к началу" class="topbutton" style="color: #00ff00">Наверх</a>
     <button id="btn7" onclick="sendMessage('id_6');">Сохранить в своём списке</button>
 </section>
 <section id="cooling-system-section">
     <h1 align="left" style="margin-bottom: auto">Система охлаждения</h1>
     <pre>Система охлаждения компьютера — набор средств для отвода тепла (т.е. охлаждения, холодильная установка) от нагревающихся в процессе работы компьютерных компонентов (процессор, чипсет, транзисторы и диоды, и пр.). Существуют различные способы отвода тепла: воздушное, жидкостное, термоэлектрическое, с помощью фазового перехода.</pre>
-    <a href="#" title="Вернуться к началу" class="topbutton">Наверх</a>
+    <a href="#" title="Вернуться к началу" class="topbutton" style="color: #00ff00">Наверх</a>
     <button id="btn8" onclick="sendMessage('id_7');">Сохранить в своём списке</button>
 </section>
 <section id="bios-section">
     <h1 align="left" style="margin-bottom: auto">BIOS</h1>
     <pre>BIOS (basic input/output system — «базовая система ввода-вывода»), также БСВВ — набор микропрограмм, реализующих низкоуровневые API для работы с аппаратным обеспечением компьютера, а также создающих необходимую программную среду для запуска операционной системы у IBM PC-совместимых компьютеров.</pre>
-    <a href="#" title="Вернуться к началу" class="topbutton">Наверх</a>
+    <a href="#" title="Вернуться к началу" class="topbutton" style="color: #00ff00">Наверх</a>
     <button id="btn2" onclick="sendMessage('id_8');">Сохранить в своём списке</button>
 </section>
 
 <footer>
-    <p><a href="#" title="Вернуться к началу" class="topbutton">^Наверх</a>
+    <p><a href="#" title="Вернуться к началу" class="topbutton" style="color: #00ff00">^Наверх</a>
         <br>Какая-то информация об авторском праве
     </p>
 </footer>
