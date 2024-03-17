@@ -189,12 +189,12 @@
         }
         .computer-button {
             display: inline-block;
-            font-size: 100%;
-            padding: 0.25% 0.25%;
+            font-size: 45%;
+            /*padding: 0.25% 0.25%;*/
             background: var(--tg-theme-button-color);
             color: var(--tg-theme-button-text-color);
             border: none;
-            border-radius: 1%;
+            /*border-radius: 1%;*/
             /*background-color: var(--tg-theme-button-color, #6600ff);*/
             background-color: #363b39;
         }
@@ -204,10 +204,10 @@
 
 <div id = "wrap">
 	<header>
-<div class = "title">Название справочника</div>
-<ul class = "menu">
-		<li><a href = "https://github.com/Geodeziy/W-0723">Github</a></li>
-</ul>
+        <div class = "title">Название справочника</div>
+        <ul class = "menu">
+        <li><a href = "https://github.com/Geodeziy/W-0723">Github</a></li>
+        </ul>
     </header>
 </div>
 
@@ -218,13 +218,13 @@
         <img src="https://geodeziy.github.io/W-0723/img/computer.jpg" alt="Схема компьютера" class="img-computer">
         <figcaption>Состав системного блока</figcaption>
     </figure>
-    <button id="processor" style="position: absolute; top: 410px; left: 450px;" class="computer-button">Процессор</button>
+    <button id="processor" style="position: absolute; top: 28%; left: 27.5%;" class="computer-button">Процессор</button>
     <button id="graphics-card" style="position: absolute; top: 55%; left: 42%;" class="computer-button">Видеокарта</button>
-    <button id="ram" style="position: absolute; top: 25%; left: 42%;" class="computer-button">ОЗУ</button>
-    <button id="disk-storage" style="position: absolute; top: 57%; left: 55.5%;" class="computer-button">Устройство хранения информации</button>
-    <button id="cooling-system" style="position: absolute; top: 59%; left: 9.5%;" class="computer-button">Вентилятор</button>
-    <button id="motherboard" style="position: absolute; top: 84%; left: 18%; right: 53.7%;" class="computer-button">Материнская плата</button>
-    <button id="psu" style="position: absolute; top: 11%; left: 15%;" class="computer-button">Блок питания</button>
+    <button id="ram" style="position: absolute; top: 24%; left: 42%;" class="computer-button">ОЗУ</button>
+    <button id="disk-storage" style="position: absolute; top: 57%; left: 60%;" class="computer-button">Устройство хранения информации</button>
+    <button id="cooling-system" style="position: absolute; top: 59%; left: 10.5%;" class="computer-button">Вентилятор</button>
+    <button id="motherboard" style="position: absolute; top: 84.5%; left: 18%; right: 53.7%;" class="computer-button">Материнская плата</button>
+    <button id="psu" style="position: absolute; top: 11%; left: 16%;" class="computer-button">Блок питания</button>
 </div>
 
 <section id="processor-section">
@@ -363,25 +363,25 @@
 </script>
 <script>
     document.getElementById("processor").addEventListener("click", function() {
-    window.location.href = "#processor-section";
+        window.location.href = "#processor-section";
 });
     document.getElementById("ram").addEventListener("click", function() {
-    window.location.href = "#ram-section";
+        window.location.href = "#ram-section";
 });
     document.getElementById("motherboard").addEventListener("click", function() {
-    window.location.href = "#motherboard-section";
+        window.location.href = "#motherboard-section";
 });
     document.getElementById("graphics-card").addEventListener("click", function() {
-    window.location.href = "#graphics-card-section";
+        window.location.href = "#graphics-card-section";
 });
     document.getElementById("disk-storage").addEventListener("click", function() {
-    window.location.href = "#storage-section";
+        window.location.href = "#storage-section";
 });
     document.getElementById("cooling-system").addEventListener("click", function() {
-    window.location.href = "#cooling-system-section";
+        window.location.href = "#cooling-system-section";
 });
     document.getElementById("psu").addEventListener("click", function() {
-    window.location.href = "#psu-section";
+        window.location.href = "#psu-section";
 });
 </script>
 </body>
