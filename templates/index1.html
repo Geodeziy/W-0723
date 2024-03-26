@@ -226,13 +226,20 @@
         .knopka img {
             display: inline;
         }
+
+        .animation0 pre {
+            font-family: monospace;
+            white-space: pre-wrap;
+            line-height: 1;
+        }
+
     </style>
 
 </head>
 
 <div id = "wrap">
 	<header>
-        <div class = "title" style="font-family: monospace">Раздел числа</div>
+        <div class = "title" style="font-family: monospace">Раздел числа и символы</div>
         <ul class = "menu" style="font-family: monospace">
             <li><a href = "https://github.com/Geodeziy/W-0723">Github</a></li>
         </ul>
@@ -248,16 +255,20 @@
     </section>
 
     <section id="number-base-converter-section">
-        <h1 align="left" style="margin-bottom: auto">Изменения системы счисления</h1>
+        <h1 align="left" style="margin-bottom: auto">Изменение системы счисления</h1>
         <label for="number">Введите число:</label>
         <input type="text" id="number">
-        <button onclick="convert()">Convert</button>
+        <button onclick="convert()">Конвертировать</button>
         <p style="font-size: 20px">Конвертированные числа:</p>
         <div id="binary"></div>
         <div id="octal"></div>
         <div id="decimal"></div>
         <div id="hexadecimal"></div>
     </section>
+
+<div id="animation0">
+    <pre id="animation"></pre>
+</div>
 </body>
 <script>
     Telegram.WebApp.ready();
@@ -317,5 +328,34 @@
     document.getElementById("decimal").innerHTML = "десятеричное: " + decimal;
     document.getElementById("hexadecimal").innerHTML = "шестнадцатеричное: " + hexadecimal;
 }
+</script>
+<script>
+    const asciiArt = [
+        "  #####                                                                                                                                                                                                                      ### ",
+        " ##   ##                        ##                                                                                                                                                                                           ### ",
+        "      ## ######   #####      ####    #####   #####  ##   ## ## # ##  ####     #####     #####  ######  ######   #####  ##   ##  ####      ##   ##  #####      #####  ##   ## ##   ## #####    #####    #####  #####  #####   ### ",
+        "   #####   ##    ##   ##    ##      ##   ##      ## ##   ## ## # ##     ##   ##  ##    ##        ##    ##   ## ##   ## ##  ##      ##     ##  ### ##   ##    ##      ##  ### ### ### ##  ##  ##   ##  ##  ## ##   ## ##  ##   #  ",
+        "      ##   ##    ##   ##    ######  ######   #####  ##   ## ## # ##  #####    #####    ##        ##    ######  ##   ## #####    #####     ## # ##    ###     ##      ## # ## ## # ## ######  ##   ##  ##  ## ##   ## ######      ",
+        " ##   ##   ##    ##   ##    ##   ## ##      ##       ###### ## # ## ##  ##   ##  ##    ##        ##    ##      ##   ## ##  ##  ##  ##     ###  ## ##   ##    ##      ###  ## ##   ## ##   ## ##   ##  ##  ## ##   ## ##   ## ### ",
+        "  #####    ##     #####      #####   #####   ######      ## #######  ###### ##   ##     #####    ##    ##       #####  ##   ##  ######    ##   ##  #####      #####  ##   ## ##   ## ######   #####  ##   ##  #####  ######  ### ",
+        "                                                     #####        #                                                                                                                                                              "
+    ];
+    const animationElement = document.getElementById("animation");
+const screenWidth = 50; // Ширина экрана, определяющая, сколько символов показывается одновременно
+let startColumn = 0; // Столбец, с которого начинается отображение ASCII-искусства
+
+function runAnimation() {
+    setTimeout(() => {
+        const visiblePart = asciiArt.map(line => {
+            return line.slice(startColumn, startColumn + screenWidth);
+        }).join("\n");
+        animationElement.textContent = visiblePart;
+
+        startColumn = (startColumn + 1) % asciiArt[0].length; // Увеличиваем столбец для следующего отображения
+        runAnimation(); // Запускаем следующий цикл анимации
+    }, 30);
+}
+
+runAnimation();
 </script>
 </html>
