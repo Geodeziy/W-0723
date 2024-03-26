@@ -229,8 +229,23 @@
     </style>
 
 </head>
+
+<div id = "wrap">
+	<header>
+        <div class = "title">Раздел числа</div>
+        <ul class = "menu">
+        <li><a href = "https://github.com/Geodeziy/W-0723">Github</a></li>
+        </ul>
+    </header>
+</div>
+
 <body>
-  <button id="btn1" onclick="sendMessage('id_10');">Сохранить в своём списке (веб-страница 2)</button>
+    <section id="introduction-section">
+        <h1 align="left" style="margin-bottom: auto">Числа в компьютерах</h1>
+        <pre>В основе работы компьютера лежат транзисторы, которые могут быть в одном из двух состояний: включённом или выключенном, что соответствует двоичным числам 1 и 0 соответственно. Двоичную систему счисления используют в компьютерах из-за трёх факторов: простота изготовления элементов, оперирующих значениями, возникающая из-за этого, помехоустойчивость и быстродействие. Поэтому удобно использовать двоичную систему счисления для работы компьютера. Большинство информации может быть представлено в виде битов, которые являются основой всего, что делает компьютер.</pre>
+        <a href="#" title="Вернуться к началу" class="topbutton" style="color: #00ff00">Наверх</a>
+        <button id="btn1" onclick="sendMessage('id_11');">Сохранить в своём списке</button>
+    </section>
 </body>
 <script>
     Telegram.WebApp.ready();
@@ -250,7 +265,7 @@
     $('body').css('visibility', '');
     Telegram.WebApp.MainButton
         .setText('Закрыть веб-просмотр')
-        .show()
+        .hide()
         .onClick(function () {
             webviewClose();
         });
