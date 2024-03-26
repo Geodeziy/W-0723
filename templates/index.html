@@ -244,27 +244,14 @@
 <div class="knopka">
     <p>В состав компьютера входят:</p>
     <li><a href="#processor-section"><img src="https://geodeziy.github.io/W-0723/img/cpu.png" style="width: auto; height: 1em"> Процессор</a></li>
-    <li> <a href="#ram-section"><img src="https://geodeziy.github.io/W-0723/img/ram.png" style="width: auto; height: 1em"> Оперативная память</a></li>
+    <li><a href="#ram-section"><img src="https://geodeziy.github.io/W-0723/img/ram.png" style="width: auto; height: 1em"> Оперативная память</a></li>
     <li><a href="#graphics-card-section"><img src="https://geodeziy.github.io/W-0723/img/videocard.png" style="width: 1em; height: 1em"> Видеокарта</a></li>
     <li><a href="#storage-section"><img src="https://geodeziy.github.io/W-0723/img/storage.png" style="width: 1em; height: 1em"> Устройство хранения информации</a></li>
     <li><a href="#motherboard-section"><img src="https://geodeziy.github.io/W-0723/img/motherboard.png" style="width: 1em; height: 1em"> Материнская плата</a></li>
     <li><a href="#psu-section"><img src="https://geodeziy.github.io/W-0723/img/psu.png" style="width: 1em; height: 1em"> Блок питания компьютера</a></li>
     <li><a href="#cooling-system-section"><img src="https://geodeziy.github.io/W-0723/img/coolingsystem.png" style="width: 1em; height: 1em"> Система охлаждения</a></li>
 </div>
-<!--<div class="computer-scheme hidden">-->
-<!--    <figure>-->
-<!--        <img src="https://geodeziy.github.io/W-0723/img/computer.jpg" alt="Схема компьютера" class="img-computer">-->
-<!--        <figcaption>Состав системного блока</figcaption>-->
-<!--    </figure>-->
-<!--    <button id="processor" style="position: absolute; top: 28%; left: 27.5%;" class="computer-button">Процессор</button>-->
-<!--    <button id="graphics-card" style="position: absolute; top: 55%; left: 42%;" class="computer-button">Видеокарта</button>-->
-<!--    <button id="ram" style="position: absolute; top: 24%; left: 42%;" class="computer-button">ОЗУ</button>-->
-<!--    <button id="disk-storage" style="position: absolute; top: 57%; left: 60%;" class="computer-button">Устройство хранения информации</button>-->
-<!--    <button id="cooling-system" style="position: absolute; top: 59%; left: 10.5%;" class="computer-button">Вентилятор</button>-->
-<!--    <button id="motherboard" style="position: absolute; top: 84.5%; left: 18%; right: 53.7%;" class="computer-button">Материнская плата</button>-->
-<!--    <button id="psu" style="position: absolute; top: 11%; left: 16%;" class="computer-button">Блок питания</button>-->
-<!--</div>-->
-
+<a href="http://https://geodeziy.github.io/W-0723/templates/index1.html">Раздел числа</a>
 <section id="processor-section">
     <h1 align="left" style="margin-bottom: auto">Центральный процессор</h1>
     <pre>Центральный процессор — электронный блок либо интегральная схема, исполняющая машинные инструкции (код программ), главная часть аппаратного обеспечения компьютера или программируемого логического контроллера.</pre>
@@ -344,7 +331,7 @@
     $('body').css('visibility', '');
     Telegram.WebApp.MainButton
         .setText('Закрыть веб-просмотр')
-        .show()
+        .hide()
         .onClick(function () {
             webviewClose();
         });

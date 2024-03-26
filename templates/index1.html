@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <title>index</title>
+   <meta name="robots" content="noindex,nofollow"/>
+   <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+   <style>
+        body {
+            font-family: monospace;
+            /*background-color: var(--tg-theme-bg-color, #000000);*/
+            /*color: var(--tg-theme-text-color, #ffffff);*/
+            background-color: #ffffff;
+            color: #000000;
+            font-size: 16px;
+            margin: 0;
+            padding: 0;
+            color-scheme: dark;
+        }
+
+        a {
+            color: #00ff00;
+        }
+
+        button {
+            display: inline-block;
+            font-size: 14px;
+            padding: 0.5% 0.5%;
+            /*background: var(--tg-theme-button-color);*/
+            color: var(--tg-theme-button-text-color);
+            border: none;
+            border-radius: 4px;
+            /*background-color: var(--tg-theme-button-color, #6600ff);*/
+            background-color: #313534;
+        }
+
+
+        button:hover {
+            background-color: #1e211f;
+        }
+
+        button[disabled] {
+            opacity: 0.6;
+            cursor: auto;
+            pointer-events: none;
+        }
+
+        button.close_btn {
+            /*position: fixed;*/
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 0;
+            margin: 0;
+            /*padding: 16px 20px;*/
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        section {
+            padding: 0.5% 1% 1% 1%;
+            text-align: center;
+        }
+
+        p {
+            margin: 40px 0 15px;
+        }
+
+        ul {
+            text-align: left;
+        }
+
+        li {
+            /*color: var(--tg-theme-hint-color, #a8a8a8);*/
+            margin-bottom: 10px;
+        }
+
+        textarea {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 7px;
+        }
+
+        pre {
+            background: var(--tg-theme-pre-color, #222222);
+            border-radius: 0.5%;
+            /*padding: 0.25% 0.25%;*/
+            margin: 7px 0;
+            word-break: break-all;
+            word-break: break-word;
+            white-space: pre-wrap;
+            text-align: left;
+        }
+
+        .dark pre {
+            background: rgba(255, 255, 255, .15);
+        }
+
+        .hint {
+            font-size: .8em;
+            color: var(--tg-theme-hint-color, #a8a8a8);
+        }
+
+        .ok {
+            color: green;
+        }
+
+        .err {
+            color: red;
+        }
+
+        #fixed_wrap {
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            transform: translateY(100vh);
+        }
+        img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 45%;
+            height: auto;
+            object-fit: cover;
+            /*object-position: bottom;*/
+        }
+        .slider {
+                display: flex;
+                transition: transform 0.5s ease-in-out;
+                }
+
+        .slider img {
+                    object-fit: cover;
+                    }
+
+        .title{
+	        font-size: 250%;
+            display: inline;
+            padding: 0.5% 1% 1% 1%;
+	        /*padding-top: 1%;*/
+            /*padding-left: 2%;*/
+	        text-align: left;
+            color: var(--tg-theme-button-text-color);
+            }
+        .menu{
+            list-style: none;
+            position: absolute;
+            top: 1%;
+            right: 5%;
+            }
+        footer{
+            position: absolute;
+            font-size: 14px;
+	        padding-top: 1%;
+            padding-left: 57%;
+	        text-align: right;
+            color: var(--tg-theme-button-text-color);
+        }
+
+        figcaption {
+            padding: 0.25% 0.5% 0.25% 0%;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                    color: #ffffff;
+                    background: #000000;
+            }
+        }
+        .computer-scheme {
+            position: relative;
+            width: 100%;
+            /*max-width: 800px;*/
+            /*padding: 4px;*/
+            /*padding: 0.5% 1% 1% 1%;*/
+            text-align: center;
+}
+        .img-computer {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        .computer-button {
+            display: inline-block;
+            font-size: 45%;
+            padding: 0.25% 0.25%;
+            background: var(--tg-theme-button-color);
+            color: var(--tg-theme-button-text-color);
+            border: none;
+            /*border-radius: 1%;*/
+            /*background-color: var(--tg-theme-button-color, #6600ff);*/
+            background-color: #363b39;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .knopka {
+            list-style-type: none;
+            padding: 0;
+        }
+        .knopka li {
+            text-align: left;
+
+        }
+        .knopka button {
+            width: auto;
+            text-align: left;
+        }
+
+        .knopka a {
+            color: #00ff00;
+            text-decoration: none;
+        }
+
+        .knopka img {
+            display: inline;
+        }
+    </style>
+
+</head>
+<body>
+  <button id="btn1" onclick="sendMessage('id_10');">Сохранить в своём списке (веб-страница 2)</button>
+</body>
+<script>
+    Telegram.WebApp.ready();
+
+    var initData = Telegram.WebApp.initData || '';
+    var initDataUnsafe = Telegram.WebApp.initDataUnsafe || {};
+    Telegram.WebApp.expand();
+
+    function webviewClose() {
+        Telegram.WebApp.close();
+    }
+
+    $('#main_btn').toggle(!!initDataUnsafe.query_id);
+    $('#with_webview_btn').toggle(!!initDataUnsafe.query_id && !initDataUnsafe.receiver);
+    // $('#data_btn').toggle(!initDataUnsafe.query_id || !initDataUnsafe.receiver);
+    $('#webview_data').html(JSON.stringify(initDataUnsafe, null, 2));
+    $('body').css('visibility', '');
+    Telegram.WebApp.MainButton
+        .setText('Закрыть веб-просмотр')
+        .show()
+        .onClick(function () {
+            webviewClose();
+        });
+
+    function toggleMainButton(el) {
+        var mainButton = Telegram.WebApp.MainButton;
+        if (mainButton.isVisible) {
+            mainButton.hide();
+            el.innerHTML = 'Показать кнопку';
+        } else {
+            mainButton.show();
+            el.innerHTML = 'Скрыть кнопку';
+        }
+    }
+
+    var data0 = '1';
+
+    function sendMessage(st){
+        Telegram.WebApp.sendData(st);
+    }
+</script>
+</html>
