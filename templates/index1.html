@@ -230,6 +230,7 @@
         .animation0 pre {
             font-family: monospace;
             white-space: pre-wrap;
+            /*white-space: pre-line;*/
             line-height: 1;
         }
 
@@ -353,7 +354,7 @@ function runAnimation() {
 
         startColumn = (startColumn + 1) % asciiArt[0].length; // Увеличиваем столбец для следующего отображения
         runAnimation(); // Запускаем следующий цикл анимации
-    }, 30);
+    }, 45);
 }
 
 runAnimation();
