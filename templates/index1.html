@@ -5,7 +5,7 @@
    <meta name="viewport"
           content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <title>index</title>
+   <title>index1</title>
    <meta name="robots" content="noindex,nofollow"/>
    <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
@@ -232,9 +232,9 @@
 
 <div id = "wrap">
 	<header>
-        <div class = "title">Раздел числа</div>
-        <ul class = "menu">
-        <li><a href = "https://github.com/Geodeziy/W-0723">Github</a></li>
+        <div class = "title" style="font-family: monospace">Раздел числа</div>
+        <ul class = "menu" style="font-family: monospace">
+            <li><a href = "https://github.com/Geodeziy/W-0723">Github</a></li>
         </ul>
     </header>
 </div>
@@ -245,6 +245,18 @@
         <pre>В основе работы компьютера лежат транзисторы, которые могут быть в одном из двух состояний: включённом или выключенном, что соответствует двоичным числам 1 и 0 соответственно. Двоичную систему счисления используют в компьютерах из-за трёх факторов: простота изготовления элементов, оперирующих значениями, возникающая из-за этого, помехоустойчивость и быстродействие. Поэтому удобно использовать двоичную систему счисления для работы компьютера. Большинство информации может быть представлено в виде битов, которые являются основой всего, что делает компьютер.</pre>
         <a href="#" title="Вернуться к началу" class="topbutton" style="color: #00ff00">Наверх</a>
         <button id="btn1" onclick="sendMessage('id_11');">Сохранить в своём списке</button>
+    </section>
+
+    <section id="number-base-converter-section">
+        <h1 align="left" style="margin-bottom: auto">Изменения системы счисления</h1>
+        <label for="number">Введите число:</label>
+        <input type="text" id="number">
+        <button onclick="convert()">Convert</button>
+        <p style="font-size: 20px">Конвертированные числа:</p>
+        <div id="binary"></div>
+        <div id="octal"></div>
+        <div id="decimal"></div>
+        <div id="hexadecimal"></div>
     </section>
 </body>
 <script>
@@ -286,5 +298,24 @@
     function sendMessage(st){
         Telegram.WebApp.sendData(st);
     }
+</script>
+<script>
+    function convert() {
+    var number = document.getElementById("number").value.trim();
+
+    var binary = parseInt(number, 10).toString(2);
+
+    var octal = parseInt(number, 10).toString(8);
+
+    // Без изменений
+    var decimal = number;
+
+    var hexadecimal = parseInt(number, 10).toString(16).toUpperCase();
+
+    document.getElementById("binary").innerHTML = "двоичное: " + binary;
+    document.getElementById("octal").innerHTML = "восьмеричное: " + octal;
+    document.getElementById("decimal").innerHTML = "десятеричное: " + decimal;
+    document.getElementById("hexadecimal").innerHTML = "шестнадцатеричное: " + hexadecimal;
+}
 </script>
 </html>
