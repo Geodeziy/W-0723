@@ -87,7 +87,7 @@
         }
 
         pre {
-            background: var(--tg-theme-pre-color, #222222);
+            background: #222222;
             border-radius: 0.5%;
             /*padding: 0.25% 0.25%;*/
             margin: 7px 0;
@@ -146,7 +146,8 @@
 	        /*padding-top: 1%;*/
             /*padding-left: 2%;*/
 	        text-align: left;
-            color: var(--tg-theme-button-text-color);
+            /*color: var(--tg-theme-button-text-color);*/
+            overflow-wrap: break-word;
             }
         .menu{
             list-style: none;
@@ -227,10 +228,21 @@
             display: inline;
         }
 
+        #number-base-converter-section p {
+            margin-top: 1%;
+            margin-bottom: 0.5%;
+        }
+
+        #number-base-converter-section div {
+            margin-top: 0.5%;
+        }
+
         #animation-container {
             /*display: flex;*/
             justify-content: center;
             overflow: hidden;
+            margin: 0;
+            /*padding: 0 0 0 1%;*/
         }
 
         #animation {
@@ -239,7 +251,6 @@
             /*white-space: pre-line;*/
             line-height: 1;
             /*text-align: center;*/
-            margin: 0;
         }
 
     </style>
@@ -274,14 +285,41 @@
         <div id="octal"></div>
         <div id="decimal"></div>
         <div id="hexadecimal"></div>
+        <a href="#" title="Вернуться к началу" class="topbutton" style="color: #00ff00">Наверх</a>
+        <button id="btn2" onclick="sendMessage('id_12');">Сохранить в своём списке</button>
     </section>
 
-    <section>
+    <section id="symbols-section0">
+        <h1 align="left" style="margin-bottom: auto">Символы в компьютерах. Кодировки</h1>
+        <pre>Для того чтобы компьютер мог работать с текстом, нужно было создать кодировку символов, которая бы представляла символы в виде двоичного кода. Одной из таких первых удачных кодировок стала ASCII.
+В ней каждый символ кодируется 8-ю битами, то есть всего может быть закодировано 256 символов. Первые 7 бит (128 символов, 2<sup>7</sup>=128) в этой кодировке были отданы под символы латинского алфавита, управляющие символы (такие как переносы строк, табуляция и т.д.) и грамматические символы. Остальные отводились под национальные языки.
+Из-за этого небольшого количества места под национальные языки, появилось множество национальных кодировок, что, в свою очередь, привело бы к тому, что для каждого документа пришлось бы указывать кодировку, во избежание появления нечитаемого текста.</pre>
+        <a href="#" title="Вернуться к началу" class="topbutton" style="color: #00ff00">Наверх</a>
+        <button id="btn3" onclick="sendMessage('id_13');">Сохранить в своём списке</button>
+    </section>
+
+    <section id="symbols-section1">
+        <h1 align="left" style="margin-bottom: auto">Символы в компьютерах. ASCII-живопись</h1>
+        <pre>Так как в первых компьютерах не было возможности отображать графику, программисты заинтересовались возможностью отображения графики с помощью текстовых символов и вывода полученных изображений на экран терминала и печать. Начиная с 1960-х годов, это стало популярным развлечением программистов: написать программу, которая «рисует» заданное изображение текстовыми символами. Так появилось ASCII-искусство. Так называют как сам метод графического дизайна, который использует 95 символов из кодировки ASCII, так и искусство исполнения изображений из текста в целом.
+Позднее появилась ANSI-графика, которая была расширением ASCII-графики. Она использовала все 224 печатных символа, 16 цветов шрифта и 8 фоновых цветов, поддерживаемых драйвером ANSI.SYS, который использовался в системе MS-DOS.</pre>
+        <a href="#" title="Вернуться к началу" class="topbutton" style="color: #00ff00">Наверх</a>
+        <button id="btn4" onclick="sendMessage('id_14');">Сохранить в своём списке</button>
+    </section>
+
+    <section id="animation-section">
+        Здесь представлен пример ASCII-надписи.
         <div id="animation-container">
             <pre id="animation"></pre>
         </div>
     </section>
+
+    <footer>
+        <p><a href="#" title="Вернуться к началу" class="topbutton" style="color: #00ff00">^Наверх</a>
+            <br>Какая-то информация об авторском праве
+        </p>
+    </footer>
 </body>
+<script src="https://webappcontent.telegram.org/js/jquery.min.js"></script>
 <script>
     Telegram.WebApp.ready();
 
