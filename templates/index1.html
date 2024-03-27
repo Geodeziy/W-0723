@@ -392,12 +392,12 @@
     ];
     const animationContainer = document.getElementById("animation-container");
     const animationElement = document.getElementById("animation");
-    const charWidth = 9; // Ширина одного символа в ASCII-искусстве (может потребоваться настройка)
-    let columns = Math.floor(animationContainer.clientWidth / charWidth); // Определение количества столбцов
+    const charWidth = 9;
+    let columns = Math.floor(animationContainer.clientWidth / charWidth)-1; // Определение количества столбцов
 
     // Установка ширины контейнера анимации и элемента анимации
-    animationContainer.style.width = columns * charWidth + "px";
-    animationElement.style.width = columns * charWidth + "px";
+    animationContainer.style.width = columns * charWidth + 10 + "px";
+    animationElement.style.width = columns * charWidth + 10 + "px";
 
 
     let startColumn = 0;
