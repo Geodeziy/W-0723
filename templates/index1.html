@@ -227,11 +227,19 @@
             display: inline;
         }
 
-        .animation0 pre {
+        #animation-container {
+            /*display: flex;*/
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        #animation {
             font-family: monospace;
             white-space: pre-wrap;
             /*white-space: pre-line;*/
             line-height: 1;
+            /*text-align: center;*/
+            margin: 0;
         }
 
     </style>
@@ -257,6 +265,7 @@
 
     <section id="number-base-converter-section">
         <h1 align="left" style="margin-bottom: auto">Изменение системы счисления</h1>
+        <pre>Здесь можно преобразовать десятичное число в другую систему счисления.</pre>
         <label for="number">Введите число:</label>
         <input type="text" id="number">
         <button onclick="convert()">Конвертировать</button>
@@ -267,9 +276,11 @@
         <div id="hexadecimal"></div>
     </section>
 
-<div id="animation0">
-    <pre id="animation"></pre>
-</div>
+    <section>
+        <div id="animation-container">
+            <pre id="animation"></pre>
+        </div>
+    </section>
 </body>
 <script>
     Telegram.WebApp.ready();
@@ -341,22 +352,30 @@
         "  #####    ##     #####      #####   #####   ######      ## #######  ###### ##   ##     #####    ##    ##       #####  ##   ##  ######    ##   ##  #####      #####  ##   ## ##   ## ######   #####  ##   ##  #####  ######  ### ",
         "                                                     #####        #                                                                                                                                                              "
     ];
+    const animationContainer = document.getElementById("animation-container");
     const animationElement = document.getElementById("animation");
-const screenWidth = 50; // Ширина экрана, определяющая, сколько символов показывается одновременно
-let startColumn = 0; // Столбец, с которого начинается отображение ASCII-искусства
+    const charWidth = 9; // Ширина одного символа в ASCII-искусстве (может потребоваться настройка)
+    let columns = Math.floor(animationContainer.clientWidth / charWidth); // Определение количества столбцов
 
-function runAnimation() {
-    setTimeout(() => {
-        const visiblePart = asciiArt.map(line => {
-            return line.slice(startColumn, startColumn + screenWidth);
-        }).join("\n");
-        animationElement.textContent = visiblePart;
+    // Установка ширины контейнера анимации и элемента анимации
+    animationContainer.style.width = columns * charWidth + "px";
+    animationElement.style.width = columns * charWidth + "px";
 
-        startColumn = (startColumn + 1) % asciiArt[0].length; // Увеличиваем столбец для следующего отображения
-        runAnimation(); // Запускаем следующий цикл анимации
-    }, 45);
-}
 
-runAnimation();
+    let startColumn = 0;
+
+    function runAnimation() {
+        setTimeout(() => {
+            const visiblePart = asciiArt.map(line => {
+                return line.slice(startColumn, startColumn + columns);
+            }).join("\n");
+            animationElement.textContent = visiblePart;
+
+            startColumn = (startColumn + 1) % asciiArt[0].length; // Увеличение номера столбца
+            runAnimation(); // Запуск следующего цикла анимации
+        }, 100);
+    }
+
+    runAnimation();
 </script>
 </html>
