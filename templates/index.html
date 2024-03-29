@@ -31,16 +31,16 @@
             font-size: 14px;
             padding: 0.5% 0.5%;
             /*background: var(--tg-theme-button-color);*/
-            color: var(--tg-theme-button-text-color);
+            /*color: var(--tg-theme-button-text-color);*/
             border: none;
             border-radius: 4px;
             /*background-color: var(--tg-theme-button-color, #6600ff);*/
-            background-color: #313534;
+            background-color: #333333;
         }
 
 
         button:hover {
-            background-color: #1e211f;
+            background-color: #222222;
         }
 
         button[disabled] {
@@ -87,7 +87,7 @@
         }
 
         pre {
-            background: var(--tg-theme-pre-color, #222222);
+            background: #222222;
             border-radius: 0.5%;
             /*padding: 0.25% 0.25%;*/
             margin: 7px 0;
@@ -95,23 +95,6 @@
             word-break: break-word;
             white-space: pre-wrap;
             text-align: left;
-        }
-
-        .dark pre {
-            background: rgba(255, 255, 255, .15);
-        }
-
-        .hint {
-            font-size: .8em;
-            color: var(--tg-theme-hint-color, #a8a8a8);
-        }
-
-        .ok {
-            color: green;
-        }
-
-        .err {
-            color: red;
         }
 
         #fixed_wrap {
@@ -226,6 +209,19 @@
         .knopka img {
             display: inline;
         }
+
+        #table-of-contents0-section + #table-of-contents-section{
+            margin-top: -50px
+        }
+
+        #table-of-contents0-section p {
+            margin-bottom: 2px;
+        }
+
+        #table-of-contents0-section-p, #table-of-contents0-section-li {
+            display: inline;
+        }
+
     </style>
 
 </head>
@@ -241,9 +237,13 @@
 
 <body style="visibility: visible;">
 
-<section style="text-align: left">
-<a href="https://geodeziy.github.io/W-0723/templates/index1.html">Раздел числа и символы</a>
+<section id="table-of-contents0-section" style="text-align: left">
+    <p>В справочнике представлено два раздела:</p>
+    <li id="table-of-contents0-section-li" style="list-style-type: none"><a href="https://geodeziy.github.io/W-0723/templates/index.html">Раздел компьютер.</a></li>
+    <p id="table-of-contents0-section-p">(Вы находитесь здесь)</p>
+    <li style="list-style-type: none"><a href="https://geodeziy.github.io/W-0723/templates/index1.html">Раздел числа и символы</a></li>
 </section>
+
 <section id="table-of-contents-section">
 <div class="knopka">
     <p style="text-align: left">В состав компьютера входят:</p>
@@ -254,6 +254,8 @@
     <li><a href="#motherboard-section"><img src="https://geodeziy.github.io/W-0723/img/motherboard.png" style="width: 1em; height: 1em"> Материнская плата</a></li>
     <li><a href="#psu-section"><img src="https://geodeziy.github.io/W-0723/img/psu.png" style="width: 1em; height: 1em"> Блок питания компьютера</a></li>
     <li><a href="#cooling-system-section"><img src="https://geodeziy.github.io/W-0723/img/coolingsystem.png" style="width: 1em; height: 1em"> Система охлаждения</a></li>
+    <p style="text-align: left; margin-top: 0">Также компьютер не работал бы без</p>
+    <li><a href="#bios-section">BIOS</a></li>
 </div>
 </section>
 
