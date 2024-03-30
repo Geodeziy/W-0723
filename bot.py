@@ -116,6 +116,7 @@ async def decode(message: Message, command: CommandObject):
         await message.answer('В вашей команде должно содержаться значение.')
 
 
+# Функция кодирует переданную строку
 @dp.message(Command('encode'))
 async def encode(message: Message, command: CommandObject):
     try:
