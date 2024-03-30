@@ -109,8 +109,8 @@ async def u(message: Message, command: CommandObject):
                 s += chr(i)
             await message.answer(s)
 
-    # except ValueError as e:
-    #     await message.answer(f'Значение вне диапазона Unicode [0; 1114111].')
+    except ValueError as e:
+        await message.answer(f'Значение вне диапазона Unicode [0; 1114111].')
     except AttributeError:
         await message.answer('В вашей команде должно содержаться значение.')
 
