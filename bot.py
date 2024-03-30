@@ -81,11 +81,12 @@ async def user_list(message: Message):
     else:
         await message.answer('None')
 
+
 # Команда принимает десятичные числа через пробел или одно число.
 # Если первый аргумент команды это 16,
 # то все числа принимаются в шестнадцатеричной системе счисления, начинающееся на '0x'.
-@dp.message(Command('u'))
-async def u(message: Message, command: CommandObject):
+@dp.message(Command('decode'))
+async def decode(message: Message, command: CommandObject):
     try:
         c = command.args.split()
         if c[0] == '16':
@@ -109,10 +110,29 @@ async def u(message: Message, command: CommandObject):
                 s += chr(i)
             await message.answer(s)
 
-    except ValueError as e:
+    except ValueError:
         await message.answer(f'Значение вне диапазона Unicode [0; 1114111].')
     except AttributeError:
         await message.answer('В вашей команде должно содержаться значение.')
+
+
+@dp.message(Command('encode'))
+async def encode(message: Message, command: CommandObject):
+    try:
+        symbols = list(command.args)
+        print(symbols[0] + symbols[1])
+        if symbols[0] + symbols[1] == '16':
+            s = ''
+            for i in range(3, len(symbols)):
+                s += str(hex(ord(symbols[i]))) + ' '
+            await message.answer(s)
+        else:
+            s = ''
+            for i in symbols:
+                s += str(ord(i)) + ' '
+            await message.answer(s)
+    except Exception as e:
+        await message.answer(e)
 
 
 async def main():
