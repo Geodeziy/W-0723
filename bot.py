@@ -41,7 +41,7 @@ async def appdata(message: Message):
             row_count = await cursor.fetchone()
             if row_count[0] == 0:
                 await db.execute("INSERT OR IGNORE INTO favourites (user_id, string_id) VALUES (?, ?)",
-                                               (message.from_user.id, m[3:]))
+                                 (message.from_user.id, m[3:]))
                 await db.commit()
             else:
                 pass
@@ -80,6 +80,39 @@ async def user_list(message: Message):
         await message.answer(str(result))
     else:
         await message.answer('None')
+
+# Команда принимает десятичные числа через пробел или одно число.
+# Если первый аргумент команды это 16,
+# то все числа принимаются в шестнадцатеричной системе счисления, начинающееся на '0x'.
+@dp.message(Command('u'))
+async def u(message: Message, command: CommandObject):
+    try:
+        c = command.args.split()
+        if c[0] == '16':
+            n = list(map(lambda x: int(x, 16), c))
+        else:
+            n = list(map(lambda x: int(x), c))
+        # print(n)
+        if len(n) == 1:
+            if n == 'NoneType':
+                await message.answer('Значение не передано.')
+            elif n in range(0, 33):
+                await message.answer(
+                    'Первые 32 символа Unicode представляют собой '
+                    'управляющие символы, пробелы, символы со специальным значением. '
+                    'В Telegram нельзя отправить пустое сообщение.')
+            else:
+                await message.answer(chr(n[0]))
+        else:
+            s = ''
+            for i in n:
+                s += chr(i)
+            await message.answer(s)
+
+    # except ValueError as e:
+    #     await message.answer(f'Значение вне диапазона Unicode [0; 1114111].')
+    except AttributeError:
+        await message.answer('В вашей команде должно содержаться значение.')
 
 
 async def main():
