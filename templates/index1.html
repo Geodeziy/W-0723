@@ -236,6 +236,12 @@
             /*text-align: center;*/
         }
 
+        #asciiText {
+            white-space: pre-wrap;
+            font-family: monospace;
+            font-size: 1vw;
+        }
+
     </style>
 
 </head>
@@ -259,10 +265,12 @@
 
     <section id="number-base-converter-section">
         <h1 align="left" style="margin-bottom: auto">Числа в компьютерах. Изменение системы счисления</h1>
-        <pre>Здесь можно преобразовать десятичное число в другую систему счисления.</pre>
+        <h3 align="left" style="margin-bottom: auto">Перевод десятичного числа в другую систему счисления</h3>
         <pre>Для того чтобы перевести десятичное число в другую систему счисления, нужно поделить его с остатком на основание системы счисления. Делить нужно до тех пор, пока в частном не будет 0. Результат нужно записать справа налево, то есть последний остаток станет первой цифрой нового числа.</pre>
+        <h3 align="left" style="margin-bottom: auto">Перевод числа иной системы счисления в десятичную систему счисления</h3>
         <pre>Чтобы перевести число в десятичную систему счисления, нужно разбить число на цифры, пронумеровать их справа налево, начиная с 0. Цифры числа нужно умножить на основание системы счисления, возведённое в номер этой цифры.
 Например, число A61<sub>16</sub> переведём в десятичную систему счисления. 1 - номер 0, 6 - номер 1, A это 10, номер 2. Проделаем такую операцию: 10*16<sup>2</sup> + 6*16<sup>1</sup> + 1*16<sup>0</sup>. Значит число A61<sub>16</sub> равно 10*256 + 96 + 1, то есть 2657<sub>10</sub>.</pre>
+        <pre>Здесь можно преобразовать десятичное число в другую систему счисления.</pre>
         <label for="number">Введите число:</label>
         <input type="text" id="number">
         <button onclick="convert()">Конвертировать</button>
@@ -297,6 +305,20 @@
         <div id="animation-container">
             <pre id="animation"></pre>
         </div>
+    </section>
+
+    <section>
+        <pre id="asciiText">
+
+      db       .M"""bgd   .g8"""bgd `7MMF'`7MMF'
+     ;MM:     ,MI    "Y .dP'     `M   MM    MM
+    ,V^MM.    `MMb.     dM'       `   MM    MM     `7MMF'`7MMF' ,6"Yb.    VM""MMF'`7MM""""MMF'`7MMF'`7MMF',p6"bo `7MMF'
+   ,M  `MM      `YMMNq. MM            MM    MM       MM    MM  8)   MM    ,9  MM    MM    MM    MM   ,MM 6M'  OO   MM
+   AbmmmqMA   .     `MM MM.           MM    MM mmmmm MMmmmmMM   ,pm9MM    d'  MM    MM    MM    MM ,' MM 8M        MM""Yq.
+  A'     VML  Mb     dM `Mb.     ,'   MM    MM       MM    MM  8M   MM   ,9   MM    MM    MM    MM'   MM YM.    ,  MM   j8 ,,
+.AMA.   .AMMA.P"Ybmmd"    `"bmmmd'  .JMML..JMML.   .JMML..JMML.`Moo9^Yo.gMmmmmMMm .JMML..JMML..JMML..JMML.YMbmd' .JMMmmm9' db
+                                                                        V       V
+        </pre>
     </section>
 
     <section id="symbols-section2">
@@ -387,8 +409,8 @@
     ];
     const animationContainer = document.getElementById("animation-container");
     const animationElement = document.getElementById("animation");
-    const charWidth = 9;
-    let columns = Math.floor(animationContainer.clientWidth / charWidth)-1; // Определение количества столбцов
+    const charWidth = 10;
+    let columns = Math.floor((animationContainer.clientWidth + 5) / charWidth)-1; // Определение количества столбцов
 
     // Установка ширины контейнера анимации и элемента анимации
     animationContainer.style.width = columns * charWidth + 10 + "px";
