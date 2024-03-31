@@ -90,7 +90,7 @@ async def decode(message: Message, command: CommandObject):
     try:
         c = command.args.split()
         if c[0] == '16':
-            n = list(map(lambda x: int(x, 16), c))
+            n = list(map(lambda x: int(x, 16), c[1:]))
         else:
             n = list(map(lambda x: int(x), c))
         # print(n)
@@ -116,22 +116,26 @@ async def decode(message: Message, command: CommandObject):
         await message.answer('В вашей команде должно содержаться значение.')
 
 
-# Функция кодирует переданную строку
+# Функция кодирует переданную строку. Если первые два символа команды это 16,
+# то вывод кодируется в шестнадцатеричном виде.
 @dp.message(Command('encode'))
 async def encode(message: Message, command: CommandObject):
     try:
-        symbols = list(command.args)
-        print(symbols[0] + symbols[1])
-        if symbols[0] + symbols[1] == '16':
-            s = ''
-            for i in range(3, len(symbols)):
-                s += str(hex(ord(symbols[i]))) + ' '
-            await message.answer(s)
+        if command.args is None:
+            await message.answer('Не передана строка.')
         else:
-            s = ''
-            for i in symbols:
-                s += str(ord(i)) + ' '
-            await message.answer(s)
+            symbols = list(command.args)
+            # print(symbols[0] + symbols[1])
+            if symbols[0] + symbols[1] == '16':
+                s = ''
+                for i in range(3, len(symbols)):
+                    s += str(hex(ord(symbols[i]))) + ' '
+                await message.answer(s)
+            else:
+                s = ''
+                for i in symbols:
+                    s += str(ord(i)) + ' '
+                await message.answer(s)
     except Exception as e:
         await message.answer(e)
 
