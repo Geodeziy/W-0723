@@ -2,6 +2,7 @@ from aiogram import Bot, Dispatcher, F, Router, types
 from aiogram.filters import Command, CommandObject
 from aiogram.types import Message, WebAppInfo, WebAppData, MenuButtonWebApp, InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.utils.keyboard import InlineKeyboardBuilder, ReplyKeyboardBuilder
+from aiogram.enums import ParseMode
 import asyncio
 import os
 import logging
@@ -17,7 +18,7 @@ logging.basicConfig(level=logging.DEBUG)
 @dp.message(Command("webview"))
 async def command_webview(message: Message):
     await message.answer(
-        "Нажмите на кнопку чтобы открыть веб-просмотр",
+        "Нажмите на кнопку чтобы открыть веб-просмотр.",
         reply_markup=InlineKeyboardMarkup(
             inline_keyboard=[
                 [
@@ -86,49 +87,50 @@ async def user_list(message: Message):
 @dp.message(Command('delete'))
 async def delete_item(message: Message, command: CommandObject):
     try:
-        user_id = message.from_user.id
-        element = int(command.args[0])
-        async with aiosqlite.connect('data.db') as db:
-            async with db.execute(f"SELECT * FROM favourites WHERE user_id = ? LIMIT 1 OFFSET ?",
-                                  (user_id, element - 1)) as cursor:
-                row = await cursor.fetchone()
-                if row:
-                    await db.execute("DELETE FROM favourites WHERE user_id = ? AND id = ?", (user_id, row[0]))
-                    await db.commit()
-                    await message.answer(f"Успешно удалено.")
-                else:
-                    await message.answer(f"Строка с номером {element} не найдена.")
+        if command.args is None:
+            await message.answer('Не передано значение.')
+        else:
+            user_id = message.from_user.id
+            element = int(command.args[0])
+            async with aiosqlite.connect('data.db') as db:
+                async with db.execute(f"SELECT * FROM favourites WHERE user_id = ? LIMIT 1 OFFSET ?",
+                                      (user_id, element - 1)) as cursor:
+                    row = await cursor.fetchone()
+                    if row:
+                        await db.execute("DELETE FROM favourites WHERE user_id = ? AND id = ?", (user_id, row[0]))
+                        await db.commit()
+                        await message.answer(f"Успешно удалено.")
+                    else:
+                        await message.answer(f"Строка с номером {element} не найдена.")
     except aiosqlite.Error as e:
         await message.answer("Ошибка при работе с базой данных:", e)
 
 
-# Команда принимает десятичные числа через пробел или одно число.
-# Если первый аргумент команды это 16,
-# то все числа принимаются в шестнадцатеричной системе счисления, начинающееся на '0x'.
+# Команда принимает десятичные числа через пробел или одно число и декодирует их в символы Unicode.
 @dp.message(Command('decode'))
 async def decode(message: Message, command: CommandObject):
     try:
-        c = command.args.split()
-        if c[0] == '16':
-            n = list(map(lambda x: int(x, 16), c[1:]))
+        if command.args is None:
+            await message.answer('Не переданы число или числа.')
         else:
+            c = command.args.split()
             n = list(map(lambda x: int(x), c))
-        # print(n)
-        if len(n) == 1:
-            if n == 'NoneType':
-                await message.answer('Значение не передано.')
-            elif n in range(0, 33):
-                await message.answer(
-                    'Первые 32 символа Unicode представляют собой '
-                    'управляющие символы, пробелы, символы со специальным значением. '
-                    'В Telegram нельзя отправить пустое сообщение.')
+            # print(n)
+            if len(n) == 1:
+                if n == 'NoneType':
+                    await message.answer('Значение не передано.')
+                elif n in range(0, 33):
+                    await message.answer(
+                        'Первые 32 символа Unicode представляют собой '
+                        'управляющие символы, пробелы, символы со специальным значением. '
+                        'В Telegram нельзя отправить пустое сообщение.')
+                else:
+                    await message.answer(chr(n[0]))
             else:
-                await message.answer(chr(n[0]))
-        else:
-            s = ''
-            for i in n:
-                s += chr(i)
-            await message.answer(s)
+                s = ''
+                for i in n:
+                    s += chr(i)
+                await message.answer(s)
 
     except ValueError:
         await message.answer(f'Значение вне диапазона Unicode [0; 1114111].')
@@ -136,8 +138,38 @@ async def decode(message: Message, command: CommandObject):
         await message.answer('В вашей команде должно содержаться значение.')
 
 
-# Функция кодирует переданную строку. Если первые два символа команды это 16,
-# то вывод кодируется в шестнадцатеричном виде.
+# Команда принимает шестнадцатеричные числа через пробел или одно число и декодирует их в символы Unicode.
+@dp.message(Command('decode16'))
+async def decode16(message: Message, command: CommandObject):
+    try:
+        if command.args is None:
+            await message.answer('Не переданы число или числа.')
+        else:
+            c = command.args.split()
+            n = list(map(lambda x: int(x, 16), c))
+            if len(n) == 1:
+                if n == 'NoneType':
+                    await message.answer('Значение не передано.')
+                elif n in range(0, 33):
+                    await message.answer(
+                        'Первые 32 символа Unicode представляют собой '
+                        'управляющие символы, пробелы, символы со специальным значением. '
+                        'В Telegram нельзя отправить пустое сообщение.')
+                else:
+                    await message.answer(chr(n[0]))
+            else:
+                s = ''
+                for i in n:
+                    s += chr(i)
+                await message.answer(s)
+
+    except ValueError:
+        await message.answer(f'Значение вне диапазона Unicode [0; 1114111].')
+    except AttributeError:
+        await message.answer('В вашей команде должно содержаться значение.')
+
+
+# Функция кодирует переданную строку.
 @dp.message(Command('encode'))
 async def encode(message: Message, command: CommandObject):
     try:
@@ -145,19 +177,55 @@ async def encode(message: Message, command: CommandObject):
             await message.answer('Не передана строка.')
         else:
             symbols = list(command.args)
-            # print(symbols[0] + symbols[1])
-            if symbols[0] + symbols[1] == '16':
-                s = ''
-                for i in range(3, len(symbols)):
-                    s += str(hex(ord(symbols[i]))) + ' '
-                await message.answer(s)
+            if len(symbols) == 1:
+                await message.answer(str(ord(symbols[0])))
             else:
                 s = ''
                 for i in symbols:
                     s += str(ord(i)) + ' '
                 await message.answer(s)
+
     except Exception as e:
         await message.answer(e)
+
+
+# Функция кодирует переданную строку в шестнадцатеричный формат.
+@dp.message(Command('encode16'))
+async def encode16(message: Message, command: CommandObject):
+    try:
+        if command.args is None:
+            await message.answer('Не передана строка.')
+        else:
+            symbols = list(command.args)
+            if len(symbols) == 1:
+                await message.answer(str(hex(ord(symbols[0]))))
+            else:
+                s = ''
+                for i in symbols:
+                    s += str(hex(ord(i))) + ' '
+                await message.answer(s)
+
+    except Exception as e:
+        await message.answer(e)
+
+
+@dp.message(Command('help'))
+async def help_function(message: Message):
+    await message.answer('Список доступных команд:\n'
+                         '> /help - отправляет это сообщение.\n'
+                         '> /webview - отправляет сообщение с кнопкой для открытия веб-справочника.\n'
+                         '> /list - отправляет сообщение с сохранённым списком названий статей из веб-справочника.\n'
+                         '> /delete <em>номер из списка</em> - '
+                         'удаляет из вашего списка строку под соответствующим номером.\n'
+                         '> /decode <em>десятичное число или числа</em> - возвращает строку из символов Unicode, '
+                         'чьи номера соответствуют переданным.\n'
+                         '> /decode16 <em>шестнадцатеричное число или числа</em> - '
+                         'возвращает строку из символов Unicode, '
+                         'чьи номера соответствуют переданным.\n'
+                         '> /encode <em>строка</em> - '
+                         'кодирует строку в десятичные номера символов Unicode.\n'
+                         '> /encode16 <em>строка</em> - '
+                         'кодирует строку в шестнадцатеричные номера символов Unicode.\n', parse_mode=ParseMode.HTML)
 
 
 async def main():
