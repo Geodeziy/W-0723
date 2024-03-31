@@ -77,9 +77,29 @@ async def get_values_by_user_id(user_id):
 async def user_list(message: Message):
     result = await get_values_by_user_id(message.from_user.id)
     if result:
-        await message.answer(str(result))
+        await message.answer('Ваш список:\n' + '\n'.join(f"{index + 1}. {item}" for index, item in enumerate(result))
+                             + '.')
     else:
         await message.answer('None')
+
+
+@dp.message(Command('delete'))
+async def delete_item(message: Message, command: CommandObject):
+    try:
+        user_id = message.from_user.id
+        element = int(command.args[0])
+        async with aiosqlite.connect('data.db') as db:
+            async with db.execute(f"SELECT * FROM favourites WHERE user_id = ? LIMIT 1 OFFSET ?",
+                                  (user_id, element - 1)) as cursor:
+                row = await cursor.fetchone()
+                if row:
+                    await db.execute("DELETE FROM favourites WHERE user_id = ? AND id = ?", (user_id, row[0]))
+                    await db.commit()
+                    await message.answer(f"Успешно удалено.")
+                else:
+                    await message.answer(f"Строка с номером {element} не найдена.")
+    except aiosqlite.Error as e:
+        await message.answer("Ошибка при работе с базой данных:", e)
 
 
 # Команда принимает десятичные числа через пробел или одно число.
