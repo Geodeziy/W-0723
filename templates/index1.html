@@ -19,7 +19,7 @@
             font-size: 16px;
             margin: 0;
             padding: 0;
-            color-scheme: dark;
+            /*color-scheme: dark;*/
         }
 
         a {
@@ -34,32 +34,12 @@
             /*color: var(--tg-theme-button-text-color);*/
             border: none;
             border-radius: 4px;
-            /*background-color: var(--tg-theme-button-color, #6600ff);*/
+            color: #ffffff;
             background-color: #333333;
         }
 
-
         button:hover {
             background-color: #222222;
-        }
-
-        button[disabled] {
-            opacity: 0.6;
-            cursor: auto;
-            pointer-events: none;
-        }
-
-        button.close_btn {
-            /*position: fixed;*/
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            border-radius: 0;
-            margin: 0;
-            /*padding: 16px 20px;*/
-            text-transform: uppercase;
-            cursor: pointer;
         }
 
         section {
@@ -91,7 +71,7 @@
             border-radius: 0.5%;
             /*padding: 0.25% 0.25%;*/
             margin: 7px 0;
-            word-break: break-all;
+            /*word-break: break-all;*/
             word-break: break-word;
             white-space: pre-wrap;
             text-align: left;
@@ -124,27 +104,27 @@
 
         .title{
 	        font-size: 250%;
-            display: inline;
+            display: inline-block;
             padding: 0.5% 1% 1% 1%;
-	        /*padding-top: 1%;*/
-            /*padding-left: 2%;*/
 	        text-align: left;
-            /*color: var(--tg-theme-button-text-color);*/
-            overflow-wrap: break-word;
+            hyphens: auto;
+            /*display: grid;*/
+            /*grid-template-columns: 1fr;*/
+            /*grid-template-rows: auto auto;*/
+            /*gap: 10px;*/
             }
-        .menu{
-            list-style: none;
-            position: absolute;
-            top: 1%;
-            right: 5%;
+
+        .link {
+            display: inline-block;
+            padding: 0.5% 1% 1% 1%;
             }
+
         footer{
             position: absolute;
             font-size: 14px;
 	        padding-top: 1%;
             padding-left: 57%;
 	        text-align: right;
-            color: var(--tg-theme-button-text-color);
         }
 
         figcaption {
@@ -177,8 +157,6 @@
             display: inline-block;
             font-size: 45%;
             padding: 0.25% 0.25%;
-            background: var(--tg-theme-button-color);
-            color: var(--tg-theme-button-text-color);
             border: none;
             /*border-radius: 1%;*/
             /*background-color: var(--tg-theme-button-color, #6600ff);*/
@@ -228,12 +206,14 @@
 
 </head>
 
-<div id = "wrap">
+<div id = "wrap" style="display: flex; flex-direction: column;">
 	<header>
-        <div class = "title" style="font-family: monospace">Раздел<br>  числа и символы</div>
-        <ul class = "menu" style="font-family: monospace">
-            <li><a href = "https://github.com/Geodeziy/W-0723">Github</a></li>
-        </ul>
+        <div class = "title" style="font-family: monospace">
+            Раздел числа и символы
+        </div>
+        <div class="link">
+            <a href = "https://github.com/Geodeziy/W-0723">Github</a>
+        </div>
     </header>
 </div>
 
@@ -245,7 +225,7 @@
         <li style="list-style-type: none"><a href="https://geodeziy.github.io/W-0723/templates/index1.html">Раздел числа и символы</a> <p id="table-of-contents0-section-p">(Вы находитесь здесь)</p></li>
     </section>
 
-    <section id="introduction-section">
+    <section id="introduction-section" style="margin-top: -20px">
         <h1 align="left" style="margin-bottom: auto">Числа в компьютерах</h1>
         <pre>В основе работы компьютера лежат транзисторы, которые могут быть в одном из двух состояний: включённом или выключенном, что соответствует двоичным числам 1 и 0 соответственно. Двоичную систему счисления используют в компьютерах из-за трёх факторов: простота изготовления элементов, оперирующих значениями, возникающая из-за этого, помехоустойчивость и быстродействие. Поэтому удобно использовать двоичную систему счисления для работы компьютера. Большинство информации может быть представлено в виде битов, которые являются основой всего, что делает компьютер.</pre>
         <a href="#" title="Вернуться к началу" class="topbutton" style="color: #00ff00">Наверх</a>

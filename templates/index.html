@@ -19,7 +19,7 @@
             font-size: 16px;
             margin: 0;
             padding: 0;
-            color-scheme: dark;
+            /*color-scheme: dark;*/
         }
 
         a {
@@ -34,32 +34,12 @@
             /*color: var(--tg-theme-button-text-color);*/
             border: none;
             border-radius: 4px;
-            /*background-color: var(--tg-theme-button-color, #6600ff);*/
+            color: #ffffff;
             background-color: #333333;
         }
 
-
         button:hover {
             background-color: #222222;
-        }
-
-        button[disabled] {
-            opacity: 0.6;
-            cursor: auto;
-            pointer-events: none;
-        }
-
-        button.close_btn {
-            /*position: fixed;*/
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            border-radius: 0;
-            margin: 0;
-            /*padding: 16px 20px;*/
-            text-transform: uppercase;
-            cursor: pointer;
         }
 
         section {
@@ -91,7 +71,7 @@
             border-radius: 0.5%;
             /*padding: 0.25% 0.25%;*/
             margin: 7px 0;
-            word-break: break-all;
+            /*word-break: break-all;*/
             word-break: break-word;
             white-space: pre-wrap;
             text-align: left;
@@ -124,26 +104,27 @@
 
         .title{
 	        font-size: 250%;
-            display: inline;
+            display: inline-block;
             padding: 0.5% 1% 1% 1%;
-	        /*padding-top: 1%;*/
-            /*padding-left: 2%;*/
 	        text-align: left;
-            color: var(--tg-theme-button-text-color);
+            hyphens: auto;
+            /*display: grid;*/
+            /*grid-template-columns: 1fr;*/
+            /*grid-template-rows: auto auto;*/
+            /*gap: 10px;*/
             }
-        .menu{
-            list-style: none;
-            position: absolute;
-            top: 1%;
-            right: 5%;
+
+        .link {
+            display: inline-block;
+            padding: 0.5% 1% 1% 1%;
             }
+
         footer{
             position: absolute;
             font-size: 14px;
 	        padding-top: 1%;
             padding-left: 57%;
 	        text-align: right;
-            color: var(--tg-theme-button-text-color);
         }
 
         figcaption {
@@ -176,8 +157,6 @@
             display: inline-block;
             font-size: 45%;
             padding: 0.25% 0.25%;
-            background: var(--tg-theme-button-color);
-            color: var(--tg-theme-button-text-color);
             border: none;
             /*border-radius: 1%;*/
             /*background-color: var(--tg-theme-button-color, #6600ff);*/
@@ -226,18 +205,20 @@
 
 </head>
 
-<div id = "wrap">
+<div id = "wrap" style="display: flex; flex-direction: column;">
 	<header>
-        <div class = "title">Название справочника</div>
-        <ul class = "menu">
-        <li><a href = "https://github.com/Geodeziy/W-0723">Github</a></li>
-        </ul>
+        <div class = "title">
+            Веб-справочник
+        </div>
+        <div class="link">
+            <a href = "https://github.com/Geodeziy/W-0723" id="link">Github</a>
+        </div>
     </header>
 </div>
 
 <body style="visibility: visible;">
 
-<section id="table-of-contents0-section" style="text-align: left; margin-bottom: 10px">
+<section id="table-of-contents0-section" style="text-align: left; margin-bottom: 10px;">
     <p style="margin-top: 5px; margin-bottom: 1px">В справочнике представлено два раздела:</p>
     <li id="table-of-contents0-section-li" style="list-style-type: none"><a href="https://geodeziy.github.io/W-0723/templates/index.html">Раздел компьютер.</a></li>
     <p id="table-of-contents0-section-p">(Вы находитесь здесь)</p>
@@ -247,19 +228,19 @@
 <section id="table-of-contents-section">
 <div class="knopka">
     <p style="text-align: left">В состав компьютера входят:</p>
-    <li><a href="#processor-section"><img src="https://geodeziy.github.io/W-0723/img/cpu.png" style="width: auto; height: 1em"> Процессор</a></li>
-    <li><a href="#ram-section"><img src="https://geodeziy.github.io/W-0723/img/ram.png" style="width: auto; height: 1em"> Оперативная память</a></li>
-    <li><a href="#graphics-card-section"><img src="https://geodeziy.github.io/W-0723/img/videocard.png" style="width: 1em; height: 1em"> Видеокарта</a></li>
-    <li><a href="#storage-section"><img src="https://geodeziy.github.io/W-0723/img/storage.png" style="width: 1em; height: 1em"> Устройство хранения информации</a></li>
-    <li><a href="#motherboard-section"><img src="https://geodeziy.github.io/W-0723/img/motherboard.png" style="width: 1em; height: 1em"> Материнская плата</a></li>
-    <li><a href="#psu-section"><img src="https://geodeziy.github.io/W-0723/img/psu.png" style="width: 1em; height: 1em"> Блок питания компьютера</a></li>
-    <li><a href="#cooling-system-section"><img src="https://geodeziy.github.io/W-0723/img/coolingsystem.png" style="width: 1em; height: 1em"> Система охлаждения</a></li>
+    <li><a href="#processor-section"><img src="https://geodeziy.github.io/W-0723/img/cpu.png" style="width: auto; height: 1em;"> Процессор</a></li>
+    <li><a href="#ram-section"><img src="https://geodeziy.github.io/W-0723/img/ram.png" style="width: auto; height: 1em;"> Оперативная память</a></li>
+    <li><a href="#graphics-card-section"><img src="https://geodeziy.github.io/W-0723/img/videocard.png" style="width: 1em; height: 1em;"> Видеокарта</a></li>
+    <li><a href="#storage-section"><img src="https://geodeziy.github.io/W-0723/img/storage.png" style="width: 1em; height: 1em;"> Устройство хранения информации</a></li>
+    <li><a href="#motherboard-section"><img src="https://geodeziy.github.io/W-0723/img/motherboard.png" style="width: 1em; height: 1em;"> Материнская плата</a></li>
+    <li><a href="#psu-section"><img src="https://geodeziy.github.io/W-0723/img/psu.png" style="width: 1em; height: 1em;"> Блок питания компьютера</a></li>
+    <li><a href="#cooling-system-section"><img src="https://geodeziy.github.io/W-0723/img/coolingsystem.png" style="width: 1em; height: 1em;"> Система охлаждения</a></li>
     <p style="text-align: left; margin-top: 0">Также компьютер не работал бы без</p>
     <li><a href="#bios-section">BIOS</a></li>
 </div>
 </section>
 
-<section id="processor-section">
+<section id="processor-section" style="margin-top: -20px">
     <h1 align="left" style="margin-bottom: auto">Центральный процессор</h1>
     <pre>Центральный процессор — электронный блок либо интегральная схема, исполняющая машинные инструкции (код программ), главная часть аппаратного обеспечения компьютера или программируемого логического контроллера.</pre>
     <a href="#" title="Вернуться к началу" class="topbutton" style="color: #00ff00">Наверх</a>
@@ -296,7 +277,7 @@
 </section>
 <section id="psu-section">
     <h1 align="left" style="margin-bottom: auto">Блок питания</h1>
-    <pre>Встроенный источник электропитания компьютера — устройство, предназначенное для преобразования напряжения переменного тока от сети в напряжение постоянного тока с целью питания компьютера или компьютер-сервера. Большинство современных источников питания для настольных персональных компьютеров соответствуют спецификации ATX, которая включает в себя форм-фактор и допуски по напряжению. Когда блок питания ATX подключен к электросети, он всегда обеспечивает 5-вольтовое резервное питание (5VSB), чтобы обеспечить работу компьютера в режиме ожидания и некоторых периферийных устройств. Блоки питания ATX включаются и выключаются по сигналу с материнской платы. Они также подают сигнал на материнскую плату, указывающий, когда напряжение постоянного тока соответствует заданному, чтобы компьютер мог безопасно включиться и загрузиться. Самым последним стандартом блока питания ATX является версия 3.0, по состоянию на середину 2022 года.</pre>
+    <pre>Встроенный источник электропитания компьютера — устройство, предназначенное для преобразования напряжения переменного тока от сети в напряжение постоянного тока с целью питания компьютера или компьютера-сервера. Большинство современных источников питания для настольных персональных компьютеров соответствуют спецификации ATX, которая включает в себя форм-фактор и допуски по напряжению. Когда блок питания ATX подключен к электросети, он всегда обеспечивает 5-вольтовое резервное питание (5VSB), чтобы обеспечить работу компьютера в режиме ожидания и некоторых периферийных устройств. Блоки питания ATX включаются и выключаются по сигналу с материнской платы. Они также подают сигнал на материнскую плату, указывающий, когда напряжение постоянного тока соответствует заданному, чтобы компьютер мог безопасно включиться и загрузиться. Самым последним стандартом блока питания ATX является версия 3.0, по состоянию на середину 2022 года.</pre>
     <a href="#" title="Вернуться к началу" class="topbutton" style="color: #00ff00">Наверх</a>
     <button id="btn7" onclick="sendMessage('id_6');">Сохранить в своём списке</button>
 </section>
